@@ -1,0 +1,22 @@
+{
+  "name": "vuepress",
+  "version": "1.0.0",
+  "description": "--- home: true actionText: My Site → actionLink: /guide/ features: footer: MIT Licensed | Copyright © 2018-present Evan You ---",
+  "main": "index.js",
+  "dependencies": {
+    "_node@10.1.0@node": "^10.1.0"
+  },
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vuepress dev .",
+    "build": "vuepress build .",
+    "http": "http-server .vuepress/dist -p 8089 -o"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+
