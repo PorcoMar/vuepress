@@ -13,7 +13,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vuepress dev .",
     "build": "vuepress build .",
-    "http": "http-server .vuepress/dist -p 8089 -o"
+    "http": "http-server .vuepress/dist -p 80 -o"
   },
   "keywords": [],
   "author": "",

@@ -1,6 +1,18 @@
 # vuePress说明
 ---
 
+<script>
+export default {
+  data () {
+    return {
+      num: 0
+    }
+  },
+  mounted () {
+   
+  },
+}
+</script>
 * vuePress是以vue驱动的主题系统的简约静态网站生成工具（拥有自己的默认主题）。
 
 - veuPress由vue,vue-router,webpack驱动的单页面应用，每个markdonw文件都使用markdonw-it编译为html文件，然后作为vue组件的模板来处理。类似hexo一个极简的静态网站生成器,
