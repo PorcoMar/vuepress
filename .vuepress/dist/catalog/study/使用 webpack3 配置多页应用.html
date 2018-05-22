@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>PorcoMar world | 使用 webpack3 配置多页应用</title>
+    <meta name="description" content="this guy is too lazy to say anything">
+    <link rel="shortcut icon" type="image/x-icon" href="https://gitee.com/uploads/6/1023506_PorcoMar.png?1500276509&quot; rel=&quot;shortcut icon">
+    
+    <link rel="preload" href="/assets/css/7.styles.1b77f7e7.css" as="style"><link rel="preload" href="/assets/js/app.24ff7658.js" as="script"><link rel="preload" href="/assets/js/0.0f6efacd.js" as="script"><link rel="prefetch" href="/assets/js/3.21286c12.js"><link rel="prefetch" href="/assets/js/1.91d05226.js"><link rel="prefetch" href="/assets/js/2.82b410b6.js"><link rel="prefetch" href="/assets/js/4.41e271b5.js"><link rel="prefetch" href="/assets/js/5.c3922f8b.js"><link rel="prefetch" href="/assets/js/6.3008d86c.js">
+    <link rel="stylesheet" href="/assets/css/7.styles.1b77f7e7.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="home-link router-link-active"><!----><span class="site-name">
+      PorcoMar world
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/catalog/study/" class="nav-link router-link-active">Study</a></div><div class="nav-item"><a href="/catalog/about/" class="nav-link">About</a></div><div class="nav-item"><a href="https://gitee.com/PorcoMar/events" target="_blank" rel="noopener noreferrer" class="nav-link">Gitee</a></div><div class="nav-item"><a href="https://github.com/PorcoMar" target="_blank" rel="noopener noreferrer" class="nav-link">Github</a></div><!----></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/catalog/study/" class="nav-link router-link-active">Study</a></div><div class="nav-item"><a href="/catalog/about/" class="nav-link">About</a></div><div class="nav-item"><a href="https://gitee.com/PorcoMar/events" target="_blank" rel="noopener noreferrer" class="nav-link">Gitee</a></div><div class="nav-item"><a href="https://github.com/PorcoMar" target="_blank" rel="noopener noreferrer" class="nav-link">Github</a></div><!----></nav><ul class="sidebar-links"><li><div class="sidebar-group first collapsable"><p class="sidebar-heading open"><span>开发笔记</span><span class="arrow down"></span></p><ul class="sidebar-group-items"><li><a href="/catalog/study/" class="sidebar-link">vuePress说明</a></li><li><a href="/catalog/study/使用 webpack3 配置多页应用.html" class="active sidebar-link">使用 webpack3 配置多页应用</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/catalog/study/使用 webpack3 配置多页应用.html#安装依赖" class="sidebar-link">安装依赖</a></li><li class="sidebar-sub-header"><a href="/catalog/study/使用 webpack3 配置多页应用.html#配置文件划分" class="sidebar-link">配置文件划分</a></li><li class="sidebar-sub-header"><a href="/catalog/study/使用 webpack3 配置多页应用.html#配置多页应用的关键点" class="sidebar-link">配置多页应用的关键点</a></li><li class="sidebar-sub-header"><a href="/catalog/study/使用 webpack3 配置多页应用.html#自动生成-html-页面" class="sidebar-link">自动生成 HTML 页面</a></li><li class="sidebar-sub-header"><a href="/catalog/study/使用 webpack3 配置多页应用.html#html-webpack-plugin-插件的使用" class="sidebar-link">html-webpack-plugin 插件的使用</a></li><li class="sidebar-sub-header"><a href="/catalog/study/使用 webpack3 配置多页应用.html#目录划分" class="sidebar-link">目录划分</a></li><li class="sidebar-sub-header"><a href="/catalog/study/使用 webpack3 配置多页应用.html#package-json" class="sidebar-link">package.json</a></li><li class="sidebar-sub-header"><a href="/catalog/study/使用 webpack3 配置多页应用.html#启用环境" class="sidebar-link">启用环境</a></li><li class="sidebar-sub-header"><a href="/catalog/study/使用 webpack3 配置多页应用.html#webpack-config-dev-js" class="sidebar-link">webpack.config.dev.js</a></li><li class="sidebar-sub-header"><a href="/catalog/study/使用 webpack3 配置多页应用.html#配置-eslintrc-js" class="sidebar-link">配置 .eslintrc.js</a></li><li class="sidebar-sub-header"><a href="/catalog/study/使用 webpack3 配置多页应用.html#package-json-2" class="sidebar-link">package.json</a></li><li class="sidebar-sub-header"><a href="/catalog/study/使用 webpack3 配置多页应用.html#gitignore" class="sidebar-link">.gitignore</a></li><li class="sidebar-sub-header"><a href="/catalog/study/使用 webpack3 配置多页应用.html#eslintrc-js" class="sidebar-link">.eslintrc.js</a></li><li class="sidebar-sub-header"><a href="/catalog/study/使用 webpack3 配置多页应用.html#postcss-config-js" class="sidebar-link">postcss.config.js</a></li><li class="sidebar-sub-header"><a href="/catalog/study/使用 webpack3 配置多页应用.html#config-js" class="sidebar-link">config.js</a></li><li class="sidebar-sub-header"><a href="/catalog/study/使用 webpack3 配置多页应用.html#webpack-config-js" class="sidebar-link">webpack.config.js</a></li><li class="sidebar-sub-header"><a href="/catalog/study/使用 webpack3 配置多页应用.html#webpack-config-dev-js-2" class="sidebar-link">webpack.config.dev.js</a></li><li class="sidebar-sub-header"><a href="/catalog/study/使用 webpack3 配置多页应用.html#webpack-config-prod-js" class="sidebar-link">webpack.config.prod.js</a></li><li class="sidebar-sub-header"><a href="/catalog/study/使用 webpack3 配置多页应用.html#webpack-config-lint-js" class="sidebar-link">webpack.config.lint.js</a></li><li class="sidebar-sub-header"><a href="/catalog/study/使用 webpack3 配置多页应用.html#项目结构" class="sidebar-link">项目结构</a></li><li class="sidebar-sub-header"><a href="/catalog/study/使用 webpack3 配置多页应用.html#注释：" class="sidebar-link">注释：</a></li></ul></li><li><a href="/catalog/study/Markdown写法.html" class="sidebar-link">Markdown 语法</a></li></ul></div></li></ul></div><div class="page"><div class="content"><h1 id="使用-webpack3-配置多页应用"><a href="#使用-webpack3-配置多页应用" aria-hidden="true" class="header-anchor">#</a> 使用 webpack3 配置多页应用</h1><p>为什么需要使用 webpack 构建多页应用呢？因为某些项目使用 SPA 不太合适（大多是 SEO 的原因），或者您在做项目时有其他的需求。
+如果你有如下需求：</p><p>使用 ES6 进行开发
+期望使用面向对象开发（class）
+自动压缩合并 CSS 和 JS 文件
+使用 ESLint 进行代码检查
+自动生成 HTML 文件
+自动抽取 CSS 文件
+···
+有了这些需求，基本上就必须使用 webpack 了。</p><h2 id="安装依赖"><a href="#安装依赖" aria-hidden="true" class="header-anchor">#</a> 安装依赖</h2><p>首先是项目中需要使用的依赖安装。</p><ol><li><p>安装 webpack 和 webpack-dev-server</p><pre><code> npm install webpack webpack-dev-server --save-dev
+</code></pre></li><li><p>安装 webpack-merge</p><pre><code> npm install webpack-merge --save-dev
+</code></pre></li></ol><p>该插件用来对 webpack 配置进行合并操作。</p><ol start="3"><li><p>安装 babel 相关插件</p><pre><code> npm install babel-core babel-loader babel-preset-env --save-dev
+</code></pre></li></ol><p>这系列插件用来对 ES6 语法进行转换。</p><ol start="4"><li><p>安装样式处理相关插件</p><pre><code> npm install css-loader style-loader postcss-loader autoprefixer --save-dev
+</code></pre></li></ol><p>这系列插件用来处理 CSS 样式，其中 autoprefixer 是 postcss 的一个插件，用来自动给 CSS 样式添加前缀。</p><ol start="5"><li>安装 file-loader</li></ol><p>该插件将在导入图片、字体等文件时发挥作用。PS.您也可以安装 url-loader 以实现相同的作用：</p><pre><code>    npm install file-loader --save-dev
+
+    npm install url-loader --save-dev
+</code></pre><ol start="6"><li><p>安装 ESLint 相关的插件</p><pre><code> npm install eslint eslint-loader --save-dev
+</code></pre></li></ol><p>这些插件用来对 JavaScript 代码进行检查。</p><ol start="7"><li><p>安装 html-webpack-plugin 插件</p><pre><code> npm install html-webpack-plugin --save-dev
+</code></pre></li></ol><p>该插件用来自动生成 HTML 文件。</p><ol start="8"><li><p>安装 extract-text-webpack-plugin 插件</p><pre><code> npm install extract-text-webpack-plugin --save-dev
+</code></pre></li></ol><p>该插件用来将 CSS 抽取到独立的文件。</p><ol start="9"><li><p>安装 clean-webpack-plugin 插件</p><pre><code> npm install clean-webpack-plugin --save-dev
+</code></pre></li></ol><p>该插件用来对 dist 文件夹进行清理工作，每次打包时先清理之前的 dist 文件夹。</p><h4 id="下面是这些安装了的所有依赖："><a href="#下面是这些安装了的所有依赖：" aria-hidden="true" class="header-anchor">#</a> 下面是这些安装了的所有依赖：</h4><pre><code>    ...
+      &quot;devDependencies&quot;: {
+        &quot;autoprefixer&quot;: &quot;^7.1.3&quot;,
+        &quot;babel-core&quot;: &quot;^6.26.0&quot;,
+        &quot;babel-loader&quot;: &quot;^7.1.2&quot;,
+        &quot;babel-preset-env&quot;: &quot;^1.6.0&quot;,
+        &quot;clean-webpack-plugin&quot;: &quot;^0.1.16&quot;,
+        &quot;css-loader&quot;: &quot;^0.28.7&quot;,
+        &quot;eslint&quot;: &quot;^4.6.1&quot;,
+        &quot;eslint-loader&quot;: &quot;^1.9.0&quot;,
+        &quot;extract-text-webpack-plugin&quot;: &quot;^3.0.0&quot;,
+        &quot;file-loader&quot;: &quot;^0.11.2&quot;,
+        &quot;html-webpack-plugin&quot;: &quot;^2.30.1&quot;,
+        &quot;postcss-loader&quot;: &quot;^2.0.6&quot;,
+        &quot;style-loader&quot;: &quot;^0.18.2&quot;,
+        &quot;url-loader&quot;: &quot;^0.5.9&quot;,
+        &quot;webpack&quot;: &quot;^3.5.5&quot;,
+        &quot;webpack-dev-server&quot;: &quot;^2.7.1&quot;,
+        &quot;webpack-merge&quot;: &quot;^4.1.0&quot;
+      },
+    ...
+</code></pre><h2 id="配置文件划分"><a href="#配置文件划分" aria-hidden="true" class="header-anchor">#</a> 配置文件划分</h2><p>使用 webpack 进行项目构建时，我们有不同的目的，因此最好将配置文件进行拆分，以适应不同的工作：</p><pre><code>    ├─config
+    │      config.js
+    │      webpack.config.base.js
+    │      webpack.config.dev.js
+    │      webpack.config.lint.js
+    │      webpack.config.prod.js
+    │  webpack.config.js
+</code></pre><h4 id="下面是一些配置的说明："><a href="#下面是一些配置的说明：" aria-hidden="true" class="header-anchor">#</a> 下面是一些配置的说明：</h4><pre><code>    config.js：一些全局的配置，比如 HTML 文件的路径、publicPath 等
+    webpack.config.base.js：最基础的配置文件
+    webpack.config.dev.js：开发环境配置文件
+    webpack.config.lint.js：使用 ESLint 代码检查时的配置文件
+    webpack.config.prod.js：生产环境配置文件
+    webpack.config.js：主配置文件，根据环境变量引用相应的环境的配置
+</code></pre><p>这些配置文件之间是通过 webpack-merge 这个插件进行合并的。</p><h2 id="配置多页应用的关键点"><a href="#配置多页应用的关键点" aria-hidden="true" class="header-anchor">#</a> 配置多页应用的关键点</h2><p>如何使用 webpack 配置多页面应用呢？实现多页面应用的关键点在哪里呢？首先需要简单看一下多页应用和单页应用功能的区别。</p><h4 id="单页应用的特点："><a href="#单页应用的特点：" aria-hidden="true" class="header-anchor">#</a> 单页应用的特点：</h4><p>只有一个入口页面（index.html）
+这个单页页面（index.html）中需要引入打包后的所有 JavaScript 文件
+所有的页面内容完全由 JavaScript 生成
+单页应用有自己的路由系统，服务器端没有和路由对应的文件
+···</p><h4 id="多页应用的特点："><a href="#多页应用的特点：" aria-hidden="true" class="header-anchor">#</a> 多页应用的特点：</h4><p>每个版块对应一个页面
+每个页面需要对公共的 JavaScript 进行引入
+每个页面还需要引入和其自身对应的 JavaScript 文件
+由于对应了多个页面，因此不是所有页面内容都是由 JavaScript 生成的
+没有自己的路由系统，服务器端有对应的静态文件
+···
+抛开生成页面内容和路由系统，我们可以看到单页应用和多页应用最大的区别就是：</p><p>单页应用需要在入口页面引入所有的 JavaScript 文件
+多页应用需要在每个页面中引入公共的 JavaScript 文件以及其自身的 JavaScript 文件
+由于 CSS 文件是可以由 extract-text-webpack-plugin 这个插件自动提取并插入到 HTML 页面的，因此我们只需要关心如何在 HTML 页面中引入 JavaScript 文件了。
+webpack 在打包时，会将入口文件中的 JavaScript 文件打包到某个目标文件中，在不考虑代码分割提取的情况下，一个入口文件会打包为一个目标文件，多个入口文件会打包为多个对应的目标文件。
+因此，我们可以将每个多页页面中的特有的 JavaScript 文件作为入口文件，在打包时将对应打包成不同的 bundle 文件（结果文件），如果你想要的话，还可以在打包时进行代码分割处理，将公用代码抽取成一个文件，然后在 HTML 中引入这些 JavaScript 文件就好了。
+总结一下，使用 webpack 配置多页应用的关键点在于：</p><p>将每个页面中特有的 JavaScript 文件作为入口文件进行打包
+在打包后，每个页面中都需要引入这些打包后的文件
+您可以在打包时进行公用代码提取，然后在 HTML 文件中引入
+说了这么多，其实就是利用了 webpack 多入口文件进行打包。</p><h2 id="自动生成-html-页面"><a href="#自动生成-html-页面" aria-hidden="true" class="header-anchor">#</a> 自动生成 HTML 页面</h2><p>在使用 webpack 对 JavaScript 文件进行打包时，通常需要在打包的文件名中加一个 hash 字符串用来防止缓存，当我们修改了 JavaScript 代码后，打包后的文件名也会发生变化。此时如果手动在 HTML 中引用这些 JavaScript 文件，是非常麻烦的。
+因此，我们期望能自动生成 HTML 文件，并自动引用打包后的 JavaScript 文件。所谓自动生成 HTML 文件，可以理解为将源代码的 HTML 复制到目标文件夹中，同时自动引用打包后的 JavaScript 文件。
+要完成这项操作，就需要使用前面安装的 html-webpack-plugin 这个插件。</p><h2 id="html-webpack-plugin-插件的使用"><a href="#html-webpack-plugin-插件的使用" aria-hidden="true" class="header-anchor">#</a> html-webpack-plugin 插件的使用</h2><p>首先，在我的项目中，有这么一些 HTML 页面，将它们放在 html 文件夹中：</p><pre><code>    Mode                LastWriteTime         Length Name
+    ----                -------------         ------ ----
+    -a----         2017/9/5     18:04           1071 company_intro.html
+    -a----         2017/9/5     18:04            988 contact_us.html
+    -a----         2017/9/5     18:04           1131 cooperate.html
+    -a----         2017/9/5     18:04           1244 enterprise_culture.html
+    -a----         2017/9/5     18:04           1011 hornors.html
+    -a----         2017/9/5     18:04           1365 index.html
+    -a----         2017/9/5     18:04           1769 investment.html
+    -a----         2017/9/5     18:04           1005 join_us.html
+    -a----         2017/9/5     18:04           1037 news_center.html
+    -a----         2017/9/5     18:04            987 news_item.html
+    -a----         2017/9/5     18:04           1134 operate.html
+    -a----         2017/9/5     18:04           1255 product.html
+    -a----         2017/9/5     18:04           1132 schools.html
+</code></pre><p>然后，把这些 HTML 文件名（不要后缀）都写在 config.js 文件中，以供取用：</p><pre><code>    module.exports = {
+        HTMLDirs:[
+            &quot;index&quot;,
+            &quot;company_intro&quot;,
+            &quot;enterprise_culture&quot;,
+            &quot;hornors&quot;,
+            &quot;news_center&quot;,
+            &quot;news_item&quot;,
+            &quot;product&quot;,
+            &quot;schools&quot;,
+            &quot;operate&quot;,
+            &quot;cooperate&quot;,
+            &quot;join_us&quot;,
+            &quot;contact_us&quot;,
+            &quot;investment&quot;
+        ],
+    }
+</code></pre><p>HTMLDirs 是一个数组，其中保存了项目中会用到的所有 HTML 页面。
+接下来，每个 HTML 页面都对应一份 JavaScript 代码，因此在 js 文件夹中建立对应的 JavaScript 文件：</p><pre><code>    Mode                LastWriteTime         Length Name
+    ----                -------------         ------ ----
+    -a----         2017/9/5     18:04           2686 company_intro.js
+    -a----         2017/9/5     18:04            594 contact_us.js
+    -a----         2017/9/5     18:04           1725 cooperate.js
+    -a----         2017/9/8     16:54           3505 enterprise_culture.js
+    -a----         2017/9/5     18:04           2208 hornors.js
+    -a----         2017/9/8     16:54           4491 index.js
+    -a----         2017/9/5     18:04           3180 investment.js
+    -a----         2017/9/5     18:04           1327 join_us.js
+    -a----         2017/9/8     16:55           3689 news_center.js
+    -a----         2017/9/5     18:04           1972 news_item.js
+    -a----         2017/9/5     18:04           2728 operate.js
+    -a----         2017/9/5     18:04           2664 product.js
+    -a----         2017/9/5     18:04           2476 schools.js
+</code></pre><p>这两项是必须的，只有提供了每个页面的 HTML 文件和对应的 JavaScript 文件，才能构建多页面应用。
+同时，可能每个页面都有自己的样式，因此您也可以在 css 文件夹中建立一些样式文件：</p><pre><code>    Mode                LastWriteTime         Length Name
+    ----                -------------         ------ ----
+    -a----         2017/9/5     18:04            419 company_intro.css
+    -a----         2017/9/5     18:04            167 contact_us.css
+    -a----         2017/9/5     18:04            214 cooperate.css
+    -a----         2017/9/5     18:04            926 enterprise_culture.css
+    -a----         2017/9/5     18:04            255 hornors.css
+    -a----         2017/9/5     18:04            693 investment.css
+    -a----         2017/9/5     18:04            136 join_us.css
+    -a----         2017/9/5     18:04            541 news_center.css
+    -a----         2017/9/5     18:04            623 news_item.css
+    -a----         2017/9/5     18:04            342 operate.css
+    -a----         2017/9/5     18:04            236 product.css
+    -a----         2017/9/5     18:04            213 schools.css
+</code></pre><p>关于建立样式这一项，不是必须的。
+最后，我们就可以使用 html-webpack-plugin 这个插件来自动生成 HTML 文件了，html-webpack-plugin 插件的用法如下：</p><pre><code>    // 引入插件
+    const HTMLWebpackPlugin = require(&quot;html-webpack-plugin&quot;);
+    // 引入多页面文件列表
+    const { HTMLDirs } = require(&quot;./config&quot;);
+    // 通过 html-webpack-plugin 生成的 HTML 集合
+    let HTMLPlugins = [];
+    // 入口文件集合
+    let Entries = {}
+
+    // 生成多页面的集合
+    HTMLDirs.forEach((page) =&gt; {
+        const htmlPlugin = new HTMLWebpackPlugin({
+            filename: `${page}.html`,
+            template: path.resolve(__dirname, `../app/html/${page}.html`),
+            chunks: [page, 'commons'],
+        });
+        HTMLPlugins.push(htmlPlugin);
+        Entries[page] = path.resolve(__dirname, `../app/js/${page}.js`);
+    })
+</code></pre><p>在上面的代码中，首先引入了所需的插件和变量，然后利用 html-webpack-plugin 循环生成 HTML 页面。
+简单说下 HTMLWebpackPlugin 构造函数的几个参数：</p><p>filename：生成的 HTML 文件名，我这里选择和原始文件名保持一致
+template：生成 HTML 文件使用的模板，也就是我们之前在 html 文件夹中建立的那些文件
+chunks：生成 HTML 文件时会自动插入相应的代码片段（也就是 JavaScript 文件），我这里选择插入每个页面对应的 JavaScript 文件，以及最后提取出来的公共文件代码块。
+关于 chunks 还需要说明一点，chunks 是一个数组，在生成 HTML 文件时会将数组中的对应的 JavaScript 片段自动插入到 HTML 中，这些片段也就是 webpack 打包时的 output 选项中的 [name]。这里只需要写上 [name] 值就行了，无需使用打包生成的完整名称，因为这会还没开始打包呢，打包后生成的名称咱也不知道。
+最后，我们把这些生成 HTML 文件的配置插入到 HTMLPlugins 这个数组中，同时设置 webpack 的入口文件。</p><h2 id="目录划分"><a href="#目录划分" aria-hidden="true" class="header-anchor">#</a> 目录划分</h2><p>在这个脚手架中，我是这样划分项目结构的：</p><pre><code>    ├─app
+    │  ├─css
+    │  ├─html
+    │  ├─img
+    │  ├─js
+    │  └─lib
+    ├─config
+    └─dist
+        ├─css
+        ├─img
+        └─js
+    其中 app 是项目的源码，config 是 webpack 相关的一些配置文件，dist 是存放打包后的文件，是由 webpack 自动生成的。
+    更详细的文件结构如下：
+
+    │  .babelrc
+    │  .eslintrc.js
+    │  .gitignore
+    │  package.json
+    │  postcss.config.js
+    │  webpack.config.js
+    │  
+    ├─app
+    │  │  favicon.ico
+    │  │  
+    │  ├─css
+    │  │      main.css
+    │  │      
+    │  ├─html
+    │  │      index.html
+    │  │    
+    │  │      
+    │  ├─img
+    │  │      back.png
+    │  │      
+    │  ├─js
+    │  │      ajax.js
+    │  │      footer.js
+    │  │      index.js
+    │  │      nav.js
+    │  │      public.js
+    │  │      tity_nav.js
+    │  │      
+    │  └─lib
+    │        flexible.js
+    │        normalize.css
+    │        swiper.css
+    │        swiper.js
+    │        
+    └─config
+            config.js
+            webpack.config.base.js
+            webpack.config.dev.js
+            webpack.config.lint.js
+            webpack.config.prod.js
+</code></pre><h2 id="package-json"><a href="#package-json" aria-hidden="true" class="header-anchor">#</a> package.json</h2><p>所有的功能都是从 package.json 的 scripts 入口开始执行的，我想要脚手架有以下功能：</p><ul><li><p>开发环境构建</p></li><li><p>生产环境构建</p></li><li><p>ESLint 代码检查环境</p></li><li><p>生产环境构建后的服务器预览环境</p></li><li><p>在开发或代码检查环境，需要启用 webpack-dev-server 命令，生产环境构建需要启用 webpack 命令，预览环境需要启用 http-server 环境。</p></li><li><p>上文介绍时把 http-server 给落下了，您现在可以进行如下安装：</p><pre><code>  npm install http-server --save-dev
+</code></pre></li></ul><p>scripts 命令行配置如下：</p><pre><code>      &quot;scripts&quot;: {
+        &quot;dev&quot;: &quot;set NODE_ENV=dev &amp;&amp; webpack-dev-server --open&quot;,
+        &quot;build&quot;: &quot;set NODE_ENV=prod &amp;&amp; webpack -p&quot;,
+        &quot;lint&quot;: &quot;set NODE_ENV=lint &amp;&amp; webpack-dev-server --open&quot;,
+        &quot;serve&quot;: &quot;http-server ./dist -p 8888 -o&quot;,
+        &quot;serve2&quot;: &quot;http-server ./dist -p 8888&quot;
+      },
+</code></pre><p>下面是整个 package.json 文件：</p><pre><code>    {
+      &quot;name&quot;: &quot;xxx&quot;,
+      &quot;version&quot;: &quot;1.0.0&quot;,
+      &quot;description&quot;: &quot;&quot;,
+      &quot;main&quot;: &quot;index.js&quot;,
+      &quot;scripts&quot;: {
+        &quot;dev&quot;: &quot;set NODE_ENV=dev &amp;&amp; webpack-dev-server --open&quot;,
+        &quot;build&quot;: &quot;set NODE_ENV=prod &amp;&amp; webpack -p&quot;,
+        &quot;lint&quot;: &quot;set NODE_ENV=lint &amp;&amp; webpack-dev-server --open&quot;,
+        &quot;serve&quot;: &quot;http-server ./dist -p 8888 -o&quot;,
+        &quot;serve2&quot;: &quot;http-server ./dist -p 8888&quot;
+      },
+      &quot;author&quot;: &quot;&quot;,
+      &quot;license&quot;: &quot;ISC&quot;,
+      &quot;devDependencies&quot;: {
+        &quot;autoprefixer&quot;: &quot;^7.1.3&quot;,
+        &quot;babel-core&quot;: &quot;^6.26.0&quot;,
+        &quot;babel-loader&quot;: &quot;^7.1.2&quot;,
+        &quot;babel-plugin-transform-es2015-spread&quot;: &quot;^6.22.0&quot;,
+        &quot;babel-preset-env&quot;: &quot;^1.6.0&quot;,
+        &quot;clean-webpack-plugin&quot;: &quot;^0.1.16&quot;,
+        &quot;css-loader&quot;: &quot;^0.28.7&quot;,
+        &quot;eslint&quot;: &quot;^4.5.0&quot;,
+        &quot;eslint-loader&quot;: &quot;^1.9.0&quot;,
+        &quot;extract-text-webpack-plugin&quot;: &quot;^3.0.0&quot;,
+        &quot;file-loader&quot;: &quot;^0.11.2&quot;,
+        &quot;html-webpack-plugin&quot;: &quot;^2.30.1&quot;,
+        &quot;http-server&quot;: &quot;^0.10.0&quot;,
+        &quot;postcss-loader&quot;: &quot;^2.0.6&quot;,
+        &quot;style-loader&quot;: &quot;^0.18.2&quot;,
+        &quot;url-loader&quot;: &quot;^0.5.9&quot;,
+        &quot;webpack&quot;: &quot;^3.5.5&quot;,
+        &quot;webpack-dev-server&quot;: &quot;^2.7.1&quot;,
+        &quot;webpack-merge&quot;: &quot;^4.1.0&quot;
+      },
+      &quot;dependencies&quot;: {}
+    }
+</code></pre><h2 id="启用环境"><a href="#启用环境" aria-hidden="true" class="header-anchor">#</a> 启用环境</h2><p>如果您想启用某个环境，需要使用 npm run xxx 命令：</p><ul><li>npm run dev：进入开发环境</li><li>npm run build：进入生产环境</li><li>npm run lint：执行代码检查</li><li>npm run serve：服务器环境下预览（打开浏览器）</li><li>npm run serve2：服务器环境下预览（不打开浏览器）
+默认情况下，使用这些命令都会先引入和 package.js 同目录下的 webpack.config.js 文件。由于我们不会将所有的配置都放在 webpack.config.js 中，而是过环境变量进行区分，在 webpack.config.js 中引用其他的配置文件。
+设置环境变量采用的语法：</li></ul><p>set NODE_ENV=xxx
+这里我们为开发、生产、代码检查和预览这几个环境设置了环境变量。</p><ul><li><p>webpack.config.js</p></li><li><p>webpack.config.js 文件比较简单，只有两行代码，其作用就是用来引用其他的配置文件：</p><pre><code>  // 获取环境命令，并去除首尾空格
+  const env = process.env.NODE_ENV.replace(/(\s*$)|(^\s*)/ig,&quot;&quot;);
+  // 根据环境变量引用相关的配置文件
+  module.exports = require(`./config/webpack.config.${env}.js`)
+  webpack.config.base.js
+</code></pre></li></ul><p>webpack.config.base.js 是最基础的配置文件，包含了这些环境都可能使用到的配置。</p><h4 id="_1）相关插件引入"><a href="#_1）相关插件引入" aria-hidden="true" class="header-anchor">#</a> 1）相关插件引入</h4><hr><pre><code>    const path = require(&quot;path&quot;);
+    // 引入插件
+    const HTMLWebpackPlugin = require(&quot;html-webpack-plugin&quot;);
+    // 清理 dist 文件夹
+    const CleanWebpackPlugin = require(&quot;clean-webpack-plugin&quot;)
+    // 抽取 css
+    const ExtractTextPlugin = require(&quot;extract-text-webpack-plugin&quot;);
+</code></pre><h4 id="_2）自动生成-html-的配置"><a href="#_2）自动生成-html-的配置" aria-hidden="true" class="header-anchor">#</a> 2）自动生成 HTML 的配置</h4><pre><code>    // 引入多页面文件列表
+    const config = require(&quot;./config&quot;);
+    // 通过 html-webpack-plugin 生成的 HTML 集合
+    let HTMLPlugins = [];
+    // 入口文件集合
+    let Entries = {}
+
+    // 生成多页面的集合
+    config.HTMLDirs.forEach((page) =&gt; {
+        const htmlPlugin = new HTMLWebpackPlugin({
+            filename: `${page}.html`,
+            template: path.resolve(__dirname, `../app/html/${page}.html`),
+            chunks: [page, 'commons'],
+        });
+        HTMLPlugins.push(htmlPlugin);
+        Entries[page] = path.resolve(__dirname, `../app/js/${page}.js`);
+    })
+</code></pre><h4 id="_3）主配置文件一览"><a href="#_3）主配置文件一览" aria-hidden="true" class="header-anchor">#</a> 3）主配置文件一览</h4><pre><code>    module.exports = {
+        // 入口文件
+        entry:Entries,
+        // 启用 sourceMap
+        devtool:&quot;cheap-module-source-map&quot;,
+        // 输出文件
+        output:{},
+        // 加载器
+        module:{
+            rules:[
+            ],
+        },
+        // 插件
+        plugins:[],
+    }
+</code></pre><h4 id="_4）配置-css-加载器"><a href="#_4）配置-css-加载器" aria-hidden="true" class="header-anchor">#</a> 4）配置 css 加载器</h4><pre><code>    {
+        // 对 css 后缀名进行处理
+        test:/\.css$/,
+        // 不处理 node_modules 文件中的 css 文件
+        exclude: /node_modules/,
+        // 抽取 css 文件到单独的文件夹
+        use: ExtractTextPlugin.extract({
+            fallback: &quot;style-loader&quot;,
+            // 设置 css 的 publicPath
+            publicPath: config.cssPublicPath,
+            use: [{
+                    loader:&quot;css-loader&quot;,
+                    options:{
+                        // 开启 css 压缩
+                        minimize:true,
+                    }
+                },
+                {
+                    loader:&quot;postcss-loader&quot;,
+                }
+            ]
+        })
+    },
+</code></pre><p>这里有两点需要说明：
+A.publicPath：在 css 中设置背景图像的 url 时，经常会找不到图片（默认会在 css 文件所在的文件夹中寻找），这里设置 extract-text-webpack-plugin 插件的 publicPath 为图片文件夹所在的目录，就可以顺利找到图片了。
+在 config.js 中，设置 cssPublicPath 的值：</p><p>cssPublicPath:&quot;../&quot;
+B.postcss 我主要用来自动添加 css 前缀以及一点美化操作，在使用 postcss 时，需要在 postcss.config.js 中进行配置：</p><pre><code>    module.exports = {  
+      plugins: {  
+        'autoprefixer': {
+            browsers: ['last 5 version','Android &gt;= 4.0'],
+            //是否美化属性值 默认：true 
+            cascade: true,
+            //是否去掉不必要的前缀 默认：true 
+            remove: true
+        }  
+      }  
+    }  
+</code></pre><h4 id="_5）配置-js-加载器"><a href="#_5）配置-js-加载器" aria-hidden="true" class="header-anchor">#</a> 5）配置 js 加载器</h4><p>js 加载器的配置如下：</p><pre><code>    {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+            loader: 'babel-loader',
+            options: {
+                presets: ['env']
+            }
+        }
+    },
+</code></pre><h4 id="_6）配置图片加载器"><a href="#_6）配置图片加载器" aria-hidden="true" class="header-anchor">#</a> 6）配置图片加载器</h4><p>图片加载器的配置如下：</p><pre><code>    {
+        test: /\.(png|svg|jpg|gif)$/,
+        use:{
+            loader:&quot;file-loader&quot;,
+            options:{
+                // 打包生成图片的名字
+                name:&quot;[name].[ext]&quot;,
+                // 图片的生成路径
+                outputPath:config.imgOutputPath
+            }
+        }
+    },
+</code></pre><p>outputPath 规定了输出图片的位置，默认情况下，图片在打包时会和所有的 HTML/CSS/JS 文件打包到一起，通过设置 outputPath 值可以将所有的图片都打包到一个单独的文件中。
+设置 config.js 的 imgOutputPath：</p><p>imgOutputPath:&quot;img/&quot;,
+在打包时，会将所有的图片打包到 dist 文件夹下的 img 文件夹中。</p><h4 id="_7）配置自定义字体加载器"><a href="#_7）配置自定义字体加载器" aria-hidden="true" class="header-anchor">#</a> 7）配置自定义字体加载器</h4><p>自定义字体加载器的配置如下：</p><pre><code>    {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use:[&quot;file-loader&quot;]
+    }
+</code></pre><h4 id="_8）插件配置"><a href="#_8）插件配置" aria-hidden="true" class="header-anchor">#</a> 8）插件配置</h4><p>插件配置如下：</p><pre><code>    plugins:[
+        // 自动清理 dist 文件夹
+        new CleanWebpackPlugin([&quot;dist&quot;]),
+        // 将 css 抽取到某个文件夹
+        new ExtractTextPlugin(config.cssOutputPath),        
+        // 自动生成 HTML 插件
+        ...HTMLPlugins
+    ],
+</code></pre><p>同打包图片，在抽取 css 时也可以指定抽取的目录，只需将路径传入 extract-text-webpack-plugin 插件的构造函数中。
+配置 config.js 的 cssOutputPath 选项：</p><p>cssOutputPath:&quot;./css/styles.css&quot;,
+这里将所有的 css 提取到 dist 文件夹下的 css 文件夹中，并命名为 style.css。</p><p>webpack.config.base.js 详细配置</p><p>下面是 webpack.config.base.js 的详细配置文件：</p><pre><code>      const path = require(&quot;path&quot;);
+      // 引入插件
+      const HTMLWebpackPlugin = require(&quot;html-webpack-plugin&quot;);
+      // 清理 dist 文件夹
+      const CleanWebpackPlugin = require(&quot;clean-webpack-plugin&quot;)
+      // 抽取 css
+      const ExtractTextPlugin = require(&quot;extract-text-webpack-plugin&quot;);
+      // 引入多页面文件列表
+      const config = require(&quot;./config&quot;);
+      // 通过 html-webpack-plugin 生成的 HTML 集合
+      let HTMLPlugins = [];
+      // 入口文件集合
+      let Entries = {}
+
+      // 生成多页面的集合
+      config.HTMLDirs.forEach((page) =&gt; {
+          const htmlPlugin = new HTMLWebpackPlugin({
+              filename: `${page}.html`,
+              template: path.resolve(__dirname, `../app/html/${page}.html`),
+              chunks: [page, 'commons'],
+          });
+          HTMLPlugins.push(htmlPlugin);
+          Entries[page] = path.resolve(__dirname, `../app/js/${page}.js`);
+      })
+
+      module.exports = {
+          entry:Entries,
+          devtool:&quot;cheap-module-source-map&quot;,
+          output:{
+              filename:&quot;js/[name].bundle.[hash].js&quot;,
+              path:path.resolve(__dirname,&quot;../dist&quot;)
+          },
+          // 加载器
+          module:{
+              rules:[
+                  {
+                      // 对 css 后缀名进行处理
+                      test:/\.css$/,
+                      // 不处理 node_modules 文件中的 css 文件
+                      exclude: /node_modules/,
+                      // 抽取 css 文件到单独的文件夹
+                      use: ExtractTextPlugin.extract({
+                          fallback: &quot;style-loader&quot;,
+                          // 设置 css 的 publicPath
+                          publicPath: config.cssPublicPath,
+                          use: [{
+                                  loader:&quot;css-loader&quot;,
+                                  options:{
+                                      // 开启 css 压缩
+                                      minimize:true,
+                                  }
+                              },
+                              {
+                                  loader:&quot;postcss-loader&quot;,
+                              }
+                          ]
+                      })
+                  },
+                  {
+                      test: /\.js$/,
+                      exclude: /node_modules/,
+                      use: {
+                          loader: 'babel-loader',
+                          options: {
+                              presets: ['env']
+                          }
+                      }
+                  },
+                  {
+                      test: /\.(png|svg|jpg|gif)$/,
+                      use:{
+                          loader:&quot;file-loader&quot;,
+                          options:{
+                              // 打包生成图片的名字
+                              name:&quot;[name].[ext]&quot;,
+                              // 图片的生成路径
+                              outputPath:config.imgOutputPath
+                          }
+                      }
+                  },
+                  {
+                      test: /\.(woff|woff2|eot|ttf|otf)$/,
+                      use:[&quot;file-loader&quot;]
+                  }
+              ],
+          },
+          plugins:[
+              // 自动清理 dist 文件夹
+              new CleanWebpackPlugin([&quot;dist&quot;]),
+              // 将 css 抽取到某个文件夹
+              new ExtractTextPlugin(config.cssOutputPath),        
+              // 自动生成 HTML 插件
+              ...HTMLPlugins
+          ],
+      }
+</code></pre><h2 id="webpack-config-dev-js"><a href="#webpack-config-dev-js" aria-hidden="true" class="header-anchor">#</a> webpack.config.dev.js</h2><p>这个配置文件主要用来在开发环境使用，需要 webpack-dev-server 这个插件提供支持。该文件的配置如下：</p><pre><code>    // 引入基础配置文件
+    const webpackBase = require(&quot;./webpack.config.base&quot;);
+    // 引入 webpack-merge 插件
+    const webpackMerge = require(&quot;webpack-merge&quot;);
+    // 引入配置文件
+    const config = require(&quot;./config&quot;);
+    // 合并配置文件
+    module.exports = webpackMerge(webpackBase,{
+        // 配置 webpack-dev-server
+        devServer:{
+            // 项目根目录
+            contentBase:config.devServerOutputPath,
+            // 错误、警告展示设置
+            overlay:{
+                errors:true,
+                warnings:true
+            }
+        }
+    });
+</code></pre><p>其中，webpack-merge 这个插件用来对配置文件进行合并，在 webpack.config.base.js 的基础上合并新的配置。
+devServer 配置项的 contentBase 项是项目的根目录，也就是我们的 dist 目录，区别在于这个 dist 目录不是硬盘上的 dist 目录，而是存在于内存中的 dist 目录。在使用 webpack-dev-server 时，将会以这个内存中的 dist 目录作为根目录。
+devServer 的 overlay 选项中设置了展示错误和警告，这样当代码发生错误时，会将错误信息投射到浏览器上，方便我们开发。
+这里将 contentBase 指向了 config 中的一个配置：</p><pre><code>    devServerOutputPath:&quot;../dist&quot;,
+    webpack.config.prod.js
+</code></pre><p>该配置文件用来在生产环境启用，主要用来压缩、合并和抽取 JavaScript 代码，并将项目文件打包至硬盘上的 dist 文件夹中。</p><pre><code>    // 引入基础配置
+    const webpackBase = require(&quot;./webpack.config.base&quot;);
+    // 引入 webpack-merge 插件
+    const webpackMerge = require(&quot;webpack-merge&quot;);
+    // 引入 webpack
+    const webpack = require(&quot;webpack&quot;);
+    // 合并配置文件
+    module.exports = webpackMerge(webpackBase,{
+        plugins:[
+            // 代码压缩
+            new webpack.optimize.UglifyJsPlugin({
+                // 开启 sourceMap
+                sourceMap: true
+            }),
+            // 提取公共 JavaScript 代码
+            new webpack.optimize.CommonsChunkPlugin({
+                // chunk 名为 commons
+                name: &quot;commons&quot;,
+                filename: &quot;[name].bundle.js&quot;,
+            }),
+        ]
+    });
+</code></pre><p>在抽取公共的 JavaScript 代码时，我们将公共代码抽取为 commons.bundle.js，这个公共代码的 chunk（name）名就是 commons，在使用 html-webpack-plugin 自动生成 HTML 文件时会引用这个 chunk。</p><pre><code>    webpack.config.lint.js
+</code></pre><p>这项配置用来进行代码检查，配置如下：</p><pre><code>    const webpackBase = require(&quot;./webpack.config.base&quot;);
+    const webpackMerge = require(&quot;webpack-merge&quot;);
+    const config = require(&quot;./config&quot;);
+    module.exports = webpackMerge(webpackBase,{
+        module:{
+            rules:[
+                {
+                    test: /\.js$/,
+                    // 强制先进行 ESLint 检查
+                    enforce: &quot;pre&quot;,
+                    // 不对 node_modules 和 lib 文件夹中的代码进行检查
+                    exclude: /node_modules|lib/,
+                    loader: &quot;eslint-loader&quot;,
+                    options: {
+                        // 启用自动修复
+                        fix:true,
+                        // 启用警告信息
+                        emitWarning:true,
+                    }
+                },
+            ]
+        },
+        devServer:{
+            contentBase:config.devServerOutputPath,
+            overlay:{
+                errors:true,
+                warnings:true
+            }
+        }
+    });
+</code></pre><p>在使用 eslint-loader 时，我们设置了 enforce:&quot;pre&quot; 选项，这个选项表示在处理 JavaScript 之前先启用 ESLint 代码检查，然后再使用 babel 等 loader 对 JavaScript 进行编译。
+在 eslint-loader 的 options 选项中，设置了自动修复和启用警告信息，这样当我们的代码出现问题时，ESLint 会首先尝试自动修复（如将双引号改为单引号），对于无法自动修复的问题，将以警告或错误的信息进行展示。</p><h2 id="配置-eslintrc-js"><a href="#配置-eslintrc-js" aria-hidden="true" class="header-anchor">#</a> 配置 .eslintrc.js</h2><p>要想使用 ESLint 进行代码检查，除了使用 eslint-loader 之外，还需针对 ESLint 本身进行配置，这就需要一个 .eslintrc.js 文件。该文件的配置如下：</p><pre><code>    module.exports = {
+      env: {
+        browser: true,
+        commonjs: true,
+        es6: true,
+        node: true,
+      },
+      extends: 'eslint:recommended',
+      parserOptions: {
+        sourceType: 'module',
+      },
+      rules: {
+        'comma-dangle': ['error', 'always-multiline'],
+        indent: ['error', 2],
+        'linebreak-style': ['error', 'unix'],
+        quotes: ['error', 'single'],
+        semi: ['error', 'always'],
+        'no-unused-vars': ['warn'],
+        'no-console': 0,
+      },
+    };
+</code></pre><h2 id="package-json-2"><a href="#package-json-2" aria-hidden="true" class="header-anchor">#</a> package.json</h2><pre><code>    {
+      &quot;name&quot;: &quot;xxx&quot;,
+      &quot;version&quot;: &quot;1.0.0&quot;,
+      &quot;description&quot;: &quot;&quot;,
+      &quot;main&quot;: &quot;index.js&quot;,
+      &quot;scripts&quot;: {
+        &quot;dev&quot;: &quot;set NODE_ENV=dev &amp;&amp; webpack-dev-server --open&quot;,
+        &quot;build&quot;: &quot;set NODE_ENV=prod &amp;&amp; webpack -p&quot;,
+        &quot;lint&quot;: &quot;set NODE_ENV=lint &amp;&amp; webpack-dev-server --open&quot;,
+        &quot;serve&quot;: &quot;http-server ./dist -p 8888 -o&quot;,
+        &quot;serve2&quot;: &quot;http-server ./dist -p 8888&quot;
+      },
+      &quot;author&quot;: &quot;&quot;,
+      &quot;license&quot;: &quot;ISC&quot;,
+      &quot;devDependencies&quot;: {
+        &quot;autoprefixer&quot;: &quot;^7.1.3&quot;,
+        &quot;babel-core&quot;: &quot;^6.26.0&quot;,
+        &quot;babel-loader&quot;: &quot;^7.1.2&quot;,
+        &quot;babel-plugin-transform-es2015-spread&quot;: &quot;^6.22.0&quot;,
+        &quot;babel-preset-env&quot;: &quot;^1.6.0&quot;,
+        &quot;clean-webpack-plugin&quot;: &quot;^0.1.16&quot;,
+        &quot;css-loader&quot;: &quot;^0.28.7&quot;,
+        &quot;eslint&quot;: &quot;^4.5.0&quot;,
+        &quot;eslint-loader&quot;: &quot;^1.9.0&quot;,
+        &quot;extract-text-webpack-plugin&quot;: &quot;^3.0.0&quot;,
+        &quot;file-loader&quot;: &quot;^0.11.2&quot;,
+        &quot;html-webpack-plugin&quot;: &quot;^2.30.1&quot;,
+        &quot;http-server&quot;: &quot;^0.10.0&quot;,
+        &quot;postcss-loader&quot;: &quot;^2.0.6&quot;,
+        &quot;style-loader&quot;: &quot;^0.18.2&quot;,
+        &quot;url-loader&quot;: &quot;^0.5.9&quot;,
+        &quot;webpack&quot;: &quot;^3.5.5&quot;,
+        &quot;webpack-dev-server&quot;: &quot;^2.7.1&quot;,
+        &quot;webpack-merge&quot;: &quot;^4.1.0&quot;
+      },
+      &quot;dependencies&quot;: {}
+    }
+</code></pre><h2 id="gitignore"><a href="#gitignore" aria-hidden="true" class="header-anchor">#</a> .gitignore</h2><pre><code>    node_modules
+    dist
+    npm-debug.log
+</code></pre><p>.babelrc</p><pre><code>    {
+        &quot;plugins&quot;: [&quot;transform-es2015-spread&quot;]
+    }
+</code></pre><h2 id="eslintrc-js"><a href="#eslintrc-js" aria-hidden="true" class="header-anchor">#</a> .eslintrc.js</h2><pre><code>    module.exports = {
+      env: {
+        browser: true,
+        commonjs: true,
+        es6: true,
+        node: true,
+      },
+      extends: 'eslint:recommended',
+      parserOptions: {
+        sourceType: 'module',
+      },
+      rules: {
+        'comma-dangle': ['error', 'always-multiline'],
+        indent: ['error', 2],
+        'linebreak-style': ['error', 'unix'],
+        quotes: ['error', 'single'],
+        semi: ['error', 'always'],
+        'no-unused-vars': ['warn'],
+        'no-console': 0,
+      },
+    };
+</code></pre><h2 id="postcss-config-js"><a href="#postcss-config-js" aria-hidden="true" class="header-anchor">#</a> postcss.config.js</h2><pre><code>    module.exports = {  
+      plugins: {  
+        'autoprefixer': {
+            browsers: ['last 5 version','Android &gt;= 4.0'],
+            //是否美化属性值 默认：true 
+            cascade: true,
+            //是否去掉不必要的前缀 默认：true 
+            remove: true
+        }  
+      }  
+    }  
+</code></pre><h2 id="config-js"><a href="#config-js" aria-hidden="true" class="header-anchor">#</a> config.js</h2><pre><code>    module.exports = {
+        HTMLDirs:[
+            &quot;index&quot;,
+            &quot;company_intro&quot;,
+            &quot;enterprise_culture&quot;,
+            &quot;hornors&quot;,
+            &quot;news_center&quot;,
+            &quot;news_item&quot;,
+            &quot;product&quot;,
+            &quot;schools&quot;,
+            &quot;operate&quot;,
+            &quot;cooperate&quot;,
+            &quot;join_us&quot;,
+            &quot;contact_us&quot;,
+            &quot;investment&quot;
+        ],
+        cssPublicPath:&quot;../&quot;,
+        imgOutputPath:&quot;img/&quot;,
+        cssOutputPath:&quot;./css/styles.css&quot;,
+        devServerOutputPath:&quot;../dist&quot;,
+
+    }
+</code></pre><h2 id="webpack-config-js"><a href="#webpack-config-js" aria-hidden="true" class="header-anchor">#</a> webpack.config.js</h2><pre><code>    // 获取环境命令，并去除首尾空格
+    const env = process.env.NODE_ENV.replace(/(\s*$)|(^\s*)/ig,&quot;&quot;);
+    // 根据环境变量引用相关的配置文件
+    module.exports = require(`./config/webpack.config.${env}.js`)
+    webpack.config.base.js
+
+    const path = require(&quot;path&quot;);
+    // 引入插件
+    const HTMLWebpackPlugin = require(&quot;html-webpack-plugin&quot;);
+    // 清理 dist 文件夹
+    const CleanWebpackPlugin = require(&quot;clean-webpack-plugin&quot;)
+    // 抽取 css
+    const ExtractTextPlugin = require(&quot;extract-text-webpack-plugin&quot;);
+    // 引入多页面文件列表
+    const config = require(&quot;./config&quot;);
+    // 通过 html-webpack-plugin 生成的 HTML 集合
+    let HTMLPlugins = [];
+    // 入口文件集合
+    let Entries = {}
+
+    // 生成多页面的集合
+    config.HTMLDirs.forEach((page) =&gt; {
+        const htmlPlugin = new HTMLWebpackPlugin({
+            filename: `${page}.html`,
+            template: path.resolve(__dirname, `../app/html/${page}.html`),
+            chunks: [page, 'commons'],
+        });
+        HTMLPlugins.push(htmlPlugin);
+        Entries[page] = path.resolve(__dirname, `../app/js/${page}.js`);
+    })
+
+    module.exports = {
+        entry:Entries,
+        devtool:&quot;cheap-module-source-map&quot;,
+        output:{
+            filename:&quot;js/[name].bundle.[hash].js&quot;,
+            path:path.resolve(__dirname,&quot;../dist&quot;)
+        },
+        // 加载器
+        module:{
+            rules:[
+                {
+                    // 对 css 后缀名进行处理
+                    test:/\.css$/,
+                    // 不处理 node_modules 文件中的 css 文件
+                    exclude: /node_modules/,
+                    // 抽取 css 文件到单独的文件夹
+                    use: ExtractTextPlugin.extract({
+                        fallback: &quot;style-loader&quot;,
+                        // 设置 css 的 publicPath
+                        publicPath: config.cssPublicPath,
+                        use: [{
+                                loader:&quot;css-loader&quot;,
+                                options:{
+                                    // 开启 css 压缩
+                                    minimize:true,
+                                }
+                            },
+                            {
+                                loader:&quot;postcss-loader&quot;,
+                            }
+                        ]
+                    })
+                },
+                {
+                    test: /\.js$/,
+                    exclude: /node_modules/,
+                    use: {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['env']
+                        }
+                    }
+                },
+                {
+                    test: /\.(png|svg|jpg|gif)$/,
+                    use:{
+                        loader:&quot;file-loader&quot;,
+                        options:{
+                            // 打包生成图片的名字
+                            name:&quot;[name].[ext]&quot;,
+                            // 图片的生成路径
+                            outputPath:config.imgOutputPath
+                        }
+                    }
+                },
+                {
+                    test: /\.(woff|woff2|eot|ttf|otf)$/,
+                    use:[&quot;file-loader&quot;]
+                }
+            ],
+        },
+        plugins:[
+            // 自动清理 dist 文件夹
+            new CleanWebpackPlugin([&quot;dist&quot;]),
+            // 将 css 抽取到某个文件夹
+            new ExtractTextPlugin(config.cssOutputPath),        
+            // 自动生成 HTML 插件
+            ...HTMLPlugins
+        ],
+    }
+</code></pre><h2 id="webpack-config-dev-js-2"><a href="#webpack-config-dev-js-2" aria-hidden="true" class="header-anchor">#</a> webpack.config.dev.js</h2><pre><code>    // 引入基础配置文件
+    const webpackBase = require(&quot;./webpack.config.base&quot;);
+    // 引入 webpack-merge 插件
+    const webpackMerge = require(&quot;webpack-merge&quot;);
+    // 引入配置文件
+    const config = require(&quot;./config&quot;);
+    // 合并配置文件
+    module.exports = webpackMerge(webpackBase,{
+        // 配置 webpack-dev-server
+        devServer:{
+            // 项目根目录
+            contentBase:config.devServerOutputPath,
+            // 错误、警告展示设置
+            overlay:{
+                errors:true,
+                warnings:true
+            }
+        }
+    });
+</code></pre><h2 id="webpack-config-prod-js"><a href="#webpack-config-prod-js" aria-hidden="true" class="header-anchor">#</a> webpack.config.prod.js</h2><pre><code>    // 引入基础配置
+    const webpackBase = require(&quot;./webpack.config.base&quot;);
+    // 引入 webpack-merge 插件
+    const webpackMerge = require(&quot;webpack-merge&quot;);
+    // 引入 webpack
+    const webpack = require(&quot;webpack&quot;);
+    // 合并配置文件
+    module.exports = webpackMerge(webpackBase,{
+        plugins:[
+            // 代码压缩
+            new webpack.optimize.UglifyJsPlugin({
+                // 开启 sourceMap
+                sourceMap: true
+            }),
+            // 提取公共 JavaScript 代码
+            new webpack.optimize.CommonsChunkPlugin({
+                // chunk 名为 commons
+                name: &quot;commons&quot;,
+                filename: &quot;[name].bundle.js&quot;,
+            }),
+        ]
+    });
+</code></pre><h2 id="webpack-config-lint-js"><a href="#webpack-config-lint-js" aria-hidden="true" class="header-anchor">#</a> webpack.config.lint.js</h2><pre><code>    const webpackBase = require(&quot;./webpack.config.base&quot;);
+    const webpackMerge = require(&quot;webpack-merge&quot;);
+    const config = require(&quot;./config&quot;);
+    module.exports = webpackMerge(webpackBase,{
+        module:{
+            rules:[
+                {
+                    test: /\.js$/,
+                    // 强制先进行 ESLint 检查
+                    enforce: &quot;pre&quot;,
+                    // 不对 node_modules 和 lib 文件夹中的代码进行检查
+                    exclude: /node_modules|lib/,
+                    loader: &quot;eslint-loader&quot;,
+                    options: {
+                        // 启用自动修复
+                        fix:true,
+                        // 启用警告信息
+                        emitWarning:true,
+                    }
+                },
+            ]
+        },
+        devServer:{
+            contentBase:config.devServerOutputPath,
+            overlay:{
+                errors:true,
+                warnings:true
+            }
+        }
+    });
+</code></pre><h2 id="项目结构"><a href="#项目结构" aria-hidden="true" class="header-anchor">#</a> 项目结构</h2><pre><code>    │  .babelrc
+    │  .eslintrc.js
+    │  .gitignore
+    │  package.json
+    │  postcss.config.js
+    │  webpack.config.js
+    │  
+    ├─app
+    │  │  favicon.ico
+    │  │  
+    │  ├─css
+    │  │      main.css
+    │  │      
+    │  ├─html
+    │  │      index.html
+    │  │    
+    │  │      
+    │  ├─img
+    │  │      back.png
+    │  │      
+    │  ├─js
+    │  │      ajax.js
+    │  │      footer.js
+    │  │      index.js
+    │  │      nav.js
+    │  │      public.js
+    │  │      tity_nav.js
+    │  │      
+    │  └─lib
+    │        flexible.js
+    │        normalize.css
+    │        swiper.css
+    │        swiper.js
+    │        
+    └─config
+            config.js
+            webpack.config.base.js
+            webpack.config.dev.js
+            webpack.config.lint.js
+            webpack.config.prod.js
+</code></pre><hr><hr><hr><hr><h2 id="注释："><a href="#注释：" aria-hidden="true" class="header-anchor">#</a> 注释：</h2><h4 id="想引用jquery而不是每个页面都引用只需要："><a href="#想引用jquery而不是每个页面都引用只需要：" aria-hidden="true" class="header-anchor">#</a> 想引用jquery而不是每个页面都引用只需要：</h4><h4 id="引入jquery后如果开启lint检查模式-可以正常使用的前提是每个页面都require-一次"><a href="#引入jquery后如果开启lint检查模式-可以正常使用的前提是每个页面都require-一次" aria-hidden="true" class="header-anchor">#</a> 引入jquery后如果开启lint检查模式 可以正常使用的前提是每个页面都require 一次</h4><ul><li><p>webpack.config.base.js</p><pre><code>  cnpm i jquery --save
+  
+  const ProvidePlugin = new webpack.ProvidePlugin({
+    $: 'jquery',
+    jQuery: 'jquery',
+  });
+</code></pre></li></ul><h4 id="引入sass"><a href="#引入sass" aria-hidden="true" class="header-anchor">#</a> 引入sass</h4><ul><li><p>webpack.config.base.js</p><pre><code>  {
+      // s?css =&gt; scss或者css
+      test:/\.s?css$/,
+      // 不处理 node_modules 文件中的 css 文件
+      exclude: /node_modules/,
+      // 抽取 css 文件到单独的文件夹
+      use: ExtractTextPlugin.extract({
+          fallback: &quot;style-loader&quot;,
+          // 设置 css 的 publicPath
+          publicPath: config.cssPublicPath,//在 css 中设置背景图像的 url 时，经常会找不到图片（默认会在 css 文件所在的文件夹中寻找），这里设置 extract-text-webpack-plugin 插件的 publicPath 为图片文件夹所在的目录，就可以顺利找到图片了
+          use: [{
+                  loader:&quot;css-loader&quot;,
+                  options:{
+                      // 开启 css 压缩
+                      minimize:true,
+                  }
+              },
+              {
+                  loader:&quot;postcss-loader&quot;,
+              },
+              {
+                  loader:&quot;sass-loader&quot;, 
+                  //启用sass 虽然在这只写了sass-loader 但还要下载node-sass
+              }
+          ]
+      })
+  },
+</code></pre></li></ul><h4 id="如果import了类似swiper这种库函数-但不处理modules里面的swiper-所以这里要允许除了node-modules里面的swiper的其他所有文件"><a href="#如果import了类似swiper这种库函数-但不处理modules里面的swiper-所以这里要允许除了node-modules里面的swiper的其他所有文件" aria-hidden="true" class="header-anchor">#</a> 如果import了类似swiper这种库函数 但不处理modules里面的swiper,所以这里要允许除了node_modules里面的swiper的其他所有文件</h4><ul><li><p>webpack.config.base.js</p><pre><code>  {
+      test: /\.js$/,
+      exclude: /^node_modules*swiper$/, 
+      use: {
+          loader: 'babel-loader',
+          options: {
+              presets: ['env']
+          }
+      }
+  },
+</code></pre></li></ul></div><!----><div class="content page-nav"><p class="inner"><span class="prev">
+        ← <a href="/catalog/study/" class="prev router-link-active">
+          vuePress说明
+        </a></span><span class="next"><a href="/catalog/study/Markdown写法.html">
+          Markdown 语法
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/assets/js/0.0f6efacd.js" defer></script><script src="/assets/js/app.24ff7658.js" defer></script>
+  </body>
+</html>
