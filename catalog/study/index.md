@@ -1,4 +1,12 @@
-# vuePress说明
+---
+title: vuePress说明
+lang: en-US
+meta:
+  - name: keywords
+    content: super duper SEO
+---
+<!-- [[toc]] -->
+# vuePress说明 :100: 
 ---
 
 <script>
@@ -13,9 +21,16 @@ export default {
   },
 }
 </script>
+<!-- | Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 | -->
+::: tip Introduce
 * vuePress是以vue驱动的主题系统的简约静态网站生成工具（拥有自己的默认主题）。
-
-- veuPress由vue,vue-router,webpack驱动的单页面应用，每个markdonw文件都使用markdonw-it编译为html文件，然后作为vue组件的模板来处理。类似hexo一个极简的静态网站生成器,
+<!-- <a href="https://gitee.com/PorcoMar/events ">ddddd</a> -->
+- veuPress由vue,vue-router,webpack驱动的单页面应用，每个markdonw文件都使用markdonw-it编译为html文件，然后作为vue组件的模板来处理，类似hexo一个极简的静态网站生成器。
+:::
 
 Vue与SEO搜索引擎优化
 ---
@@ -62,47 +77,54 @@ VuePress特性
 
 #### 全局使用
 ---
+``` js{4}
         # install globally
         npm install -g vuepress
+```
 
 #### create a markdown file
-echo "# Hello VuePress!" > README.md
-
+``` js{4}
+        echo "# Hello VuePress!" > README.md
+```
 #### start writing
+``` js{4}
         vuepress dev .
-
+```
 ##### build
+``` js{4}
         vuepress build .
+```
 #### 在现有项目中安装
 ---
 
 如果你已经有一个项目，可以将VuePress作为本地依赖进行安装，这种方式同样支持使用CI或Netlify等服务在推送时自动部署。
-
+``` js{4}
         # install as a local dependency
-npm install -D vuepress
+        npm install -D vuepress
 
         # create a docs directory
         mkdir docs
         # create a markdown file
         echo "# Hello VuePress!" > docs/README.md
-
+```
 #### start writing
         npx vuepress dev docs
 也可以直接在package.json中加入：
-
+``` js{4}
         {
           "scripts": {
             "dev": "vuepress dev .",
             "build": "vuepress build ."
           }
         }
+```
 然后执行下面的命令行来运行项目
 
         npm run dev
         
 默认情况下，构建的文件将位于.vuepress / dist中，也可以通过.vuepress / config.js中的dest字段进行配置。构建的文件可以部署到任何静态文件服务器。
 
-主页(Homepage)
+主页(Homepage) :tada:
 ---
 
 默认主题提供了一个主页布局（用于该网站的主页）。要使用它，需要在你的根目录 README.md 的 YAML front matter 中指定 home：true 加上一些其他元数据。这是本网站使用的实际数据：
@@ -117,20 +139,20 @@ npm install -D vuepress
 如果你希望对默认主题的样式应用简单覆盖，则可以创建一个 .vuepress/override.styl 文件。 这是 Stylus 文件，但你也可以使用普通的 CSS 语法。
 
 有几个颜色变量可以调整：
-
+``` js{4}
         // 显示默认值
         $accentColor = #B8A8CF
         $textColor = #2c3e50
         $borderColor = #eaecef
         $codeBgColor = #282c34
-
+```
 具体配置
 ---
 
 最重要的config.js配置
 在此值得注意的是，主题配置不只是简单的样式配置等，其中包括导航与侧边栏部分的配置，此处配置参见官网导航栏”默认主题配置“
 在.vuepress目录下生成config.js
-
+``` js{4}
         module.exports = {
           // 设置icon
            head: [
@@ -185,7 +207,7 @@ npm install -D vuepress
             ]
           }]
         } 
-
+```
 效果如下：
 ---
 <img src="./img/home.jpg"/>

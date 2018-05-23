@@ -1,16 +1,25 @@
+---
+title: 使用 webpack3 配置多页应用
+lang: en-US
+meta:
+  - name: description
+    content: hello
+---
+
 # 使用 webpack3 配置多页应用
 
 为什么需要使用 webpack 构建多页应用呢？因为某些项目使用 SPA 不太合适（大多是 SEO 的原因），或者您在做项目时有其他的需求。
 如果你有如下需求：
 
-使用 ES6 进行开发
-期望使用面向对象开发（class）
-自动压缩合并 CSS 和 JS 文件
-使用 ESLint 进行代码检查
-自动生成 HTML 文件
-自动抽取 CSS 文件
-···
-有了这些需求，基本上就必须使用 webpack 了。
+* 使用 ES6 进行开发
+* 期望使用面向对象开发（class）
+* 自动压缩合并 CSS 和 JS 文件
+* 使用 ESLint 进行代码检查
+* 自动生成 HTML 文件
+* 自动抽取 CSS 文件 ...
+
+
+有了这些需求，基本上就必须使用 <code>webpack</code> 了。
 
 安装依赖
 ---
