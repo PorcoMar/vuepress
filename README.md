@@ -1,8 +1,9 @@
 ---
 home: true 
 heroImage: https://gitee.com/uploads/6/1023506_PorcoMar.png?1500276509
-actionText: My Site →
-actionLink: /catalog/study/
+actionText: About Me →
+# actionLink: /catalog/study/
+actionLink: http://www.porcofish.net:1314/
 features:
 footer: MIT Licensed | Copyright © 2018-present Evan You
 ---

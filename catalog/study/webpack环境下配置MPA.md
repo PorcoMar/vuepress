@@ -1,23 +1,23 @@
 ---
-title: 使用 webpack3 配置多页应用
+title: webpack环境下配置MPA
 lang: en-US
 meta:
   - name: description
     content: hello
 ---
 
-# 使用 webpack3 配置多页应用
+# webpack环境下配置MPA
 
 为什么需要使用 webpack 构建多页应用呢？因为某些项目使用 SPA 不太合适（大多是 SEO 的原因），或者您在做项目时有其他的需求。
 如果你有如下需求：
-
+::: warning 需求
 * 使用 ES6 进行开发
 * 期望使用面向对象开发（class）
 * 自动压缩合并 CSS 和 JS 文件
 * 使用 ESLint 进行代码检查
 * 自动生成 HTML 文件
 * 自动抽取 CSS 文件 ...
-
+:::
 
 有了这些需求，基本上就必须使用 <code>webpack</code> 了。
 
@@ -26,53 +26,60 @@ meta:
 
 首先是项目中需要使用的依赖安装。
 1. 安装 webpack 和 webpack-dev-server
-
-        npm install webpack webpack-dev-server --save-dev
+``` js{4}
+npm install webpack webpack-dev-server --save-dev
+```
 2. 安装 webpack-merge
-
-        npm install webpack-merge --save-dev
+``` js{4}
+npm install webpack-merge --save-dev
+```
 该插件用来对 webpack 配置进行合并操作。
 
 3. 安装 babel 相关插件
-
-        npm install babel-core babel-loader babel-preset-env --save-dev
+``` js{4}
+npm install babel-core babel-loader babel-preset-env --save-dev
+```
 这系列插件用来对 ES6 语法进行转换。
 
 4. 安装样式处理相关插件
-
-        npm install css-loader style-loader postcss-loader autoprefixer --save-dev
+``` js{4}
+npm install css-loader style-loader postcss-loader autoprefixer --save-dev
+```
 这系列插件用来处理 CSS 样式，其中 autoprefixer 是 postcss 的一个插件，用来自动给 CSS 样式添加前缀。
 
 5. 安装 file-loader
 
 该插件将在导入图片、字体等文件时发挥作用。PS.您也可以安装 url-loader 以实现相同的作用：
-
-        npm install file-loader --save-dev
-
-        npm install url-loader --save-dev
-
+``` js{4}
+npm install file-loader --save-dev
+npm install url-loader --save-dev
+```
 6. 安装 ESLint 相关的插件
-
-        npm install eslint eslint-loader --save-dev
+``` js{4}
+npm install eslint eslint-loader --save-dev
+```
 这些插件用来对 JavaScript 代码进行检查。
 
 7. 安装 html-webpack-plugin 插件
-
-        npm install html-webpack-plugin --save-dev
+``` js{4}
+npm install html-webpack-plugin --save-dev
+````
 该插件用来自动生成 HTML 文件。
 
 8. 安装 extract-text-webpack-plugin 插件
-
-        npm install extract-text-webpack-plugin --save-dev
+``` js{4}
+npm install extract-text-webpack-plugin --save-dev
+```
 该插件用来将 CSS 抽取到独立的文件。
 
 9. 安装 clean-webpack-plugin 插件
-
-        npm install clean-webpack-plugin --save-dev
+``` js{4}
+npm install clean-webpack-plugin --save-dev
+```
 该插件用来对 dist 文件夹进行清理工作，每次打包时先清理之前的 dist 文件夹。
 
 #### 下面是这些安装了的所有依赖：
-
+``` js{4}
         ...
           "devDependencies": {
             "autoprefixer": "^7.1.3",
@@ -94,11 +101,12 @@ meta:
             "webpack-merge": "^4.1.0"
           },
         ...
+```
 配置文件划分
 ----
 
 使用 webpack 进行项目构建时，我们有不同的目的，因此最好将配置文件进行拆分，以适应不同的工作：
-
+``` js{4}
         ├─config
         │      config.js
         │      webpack.config.base.js
@@ -106,14 +114,16 @@ meta:
         │      webpack.config.lint.js
         │      webpack.config.prod.js
         │  webpack.config.js
+```
 #### 下面是一些配置的说明：
-
+``` js{4}
         config.js：一些全局的配置，比如 HTML 文件的路径、publicPath 等
         webpack.config.base.js：最基础的配置文件
         webpack.config.dev.js：开发环境配置文件
         webpack.config.lint.js：使用 ESLint 代码检查时的配置文件
         webpack.config.prod.js：生产环境配置文件
         webpack.config.js：主配置文件，根据环境变量引用相应的环境的配置
+```
 这些配置文件之间是通过 webpack-merge 这个插件进行合并的。
 
 
@@ -163,7 +173,7 @@ html-webpack-plugin 插件的使用
 ---
 
 首先，在我的项目中，有这么一些 HTML 页面，将它们放在 html 文件夹中：
-
+``` js{4}
         Mode                LastWriteTime         Length Name
         ----                -------------         ------ ----
         -a----         2017/9/5     18:04           1071 company_intro.html
@@ -179,8 +189,9 @@ html-webpack-plugin 插件的使用
         -a----         2017/9/5     18:04           1134 operate.html
         -a----         2017/9/5     18:04           1255 product.html
         -a----         2017/9/5     18:04           1132 schools.html
+```
 然后，把这些 HTML 文件名（不要后缀）都写在 config.js 文件中，以供取用：
-
+``` js{4}
         module.exports = {
             HTMLDirs:[
                 "index",
@@ -198,9 +209,10 @@ html-webpack-plugin 插件的使用
                 "investment"
             ],
         }
+```
 HTMLDirs 是一个数组，其中保存了项目中会用到的所有 HTML 页面。
 接下来，每个 HTML 页面都对应一份 JavaScript 代码，因此在 js 文件夹中建立对应的 JavaScript 文件：
-
+``` js{4}
         Mode                LastWriteTime         Length Name
         ----                -------------         ------ ----
         -a----         2017/9/5     18:04           2686 company_intro.js
@@ -216,9 +228,10 @@ HTMLDirs 是一个数组，其中保存了项目中会用到的所有 HTML 页�
         -a----         2017/9/5     18:04           2728 operate.js
         -a----         2017/9/5     18:04           2664 product.js
         -a----         2017/9/5     18:04           2476 schools.js
+```
 这两项是必须的，只有提供了每个页面的 HTML 文件和对应的 JavaScript 文件，才能构建多页面应用。
 同时，可能每个页面都有自己的样式，因此您也可以在 css 文件夹中建立一些样式文件：
-
+``` js{4}
         Mode                LastWriteTime         Length Name
         ----                -------------         ------ ----
         -a----         2017/9/5     18:04            419 company_intro.css
@@ -233,9 +246,10 @@ HTMLDirs 是一个数组，其中保存了项目中会用到的所有 HTML 页�
         -a----         2017/9/5     18:04            342 operate.css
         -a----         2017/9/5     18:04            236 product.css
         -a----         2017/9/5     18:04            213 schools.css
+```
 关于建立样式这一项，不是必须的。
 最后，我们就可以使用 html-webpack-plugin 这个插件来自动生成 HTML 文件了，html-webpack-plugin 插件的用法如下：
-
+``` js{4}
         // 引入插件
         const HTMLWebpackPlugin = require("html-webpack-plugin");
         // 引入多页面文件列表
@@ -255,6 +269,7 @@ HTMLDirs 是一个数组，其中保存了项目中会用到的所有 HTML 页�
             HTMLPlugins.push(htmlPlugin);
             Entries[page] = path.resolve(__dirname, `../app/js/${page}.js`);
         })
+```
 在上面的代码中，首先引入了所需的插件和变量，然后利用 html-webpack-plugin 循环生成 HTML 页面。
 简单说下 HTMLWebpackPlugin 构造函数的几个参数：
 
@@ -268,7 +283,7 @@ chunks：生成 HTML 文件时会自动插入相应的代码片段（也就是 J
 ---
 
 在这个脚手架中，我是这样划分项目结构的：
-
+``` js{4}
         ├─app
         │  ├─css
         │  ├─html
@@ -324,7 +339,7 @@ chunks：生成 HTML 文件时会自动插入相应的代码片段（也就是 J
                 webpack.config.lint.js
                 webpack.config.prod.js
 
-
+```
 
 package.json
 ---
@@ -337,11 +352,11 @@ package.json
 * 生产环境构建后的服务器预览环境
 * 在开发或代码检查环境，需要启用 webpack-dev-server 命令，生产环境构建需要启用 webpack 命令，预览环境需要启用 http-server 环境。
 * 上文介绍时把 http-server 给落下了，您现在可以进行如下安装：
-
+``` js{4}
         npm install http-server --save-dev
-
+```
 scripts 命令行配置如下：
-
+``` js{4}
           "scripts": {
             "dev": "set NODE_ENV=dev && webpack-dev-server --open",
             "build": "set NODE_ENV=prod && webpack -p",
@@ -349,8 +364,9 @@ scripts 命令行配置如下：
             "serve": "http-server ./dist -p 8888 -o",
             "serve2": "http-server ./dist -p 8888"
           },
+```
 下面是整个 package.json 文件：
-
+``` js{4}
         {
           "name": "xxx",
           "version": "1.0.0",
@@ -388,6 +404,7 @@ scripts 命令行配置如下：
           },
           "dependencies": {}
         }
+```
 启用环境
 ----
 如果您想启用某个环境，需要使用 npm run xxx 命令：
@@ -406,17 +423,17 @@ set NODE_ENV=xxx
 * webpack.config.js
 
 * webpack.config.js 文件比较简单，只有两行代码，其作用就是用来引用其他的配置文件：
-
+``` js{4}
         // 获取环境命令，并去除首尾空格
         const env = process.env.NODE_ENV.replace(/(\s*$)|(^\s*)/ig,"");
         // 根据环境变量引用相关的配置文件
         module.exports = require(`./config/webpack.config.${env}.js`)
         webpack.config.base.js
-
+```
 webpack.config.base.js 是最基础的配置文件，包含了这些环境都可能使用到的配置。
 #### 1）相关插件引入
 ---
-
+``` js{4}
         const path = require("path");
         // 引入插件
         const HTMLWebpackPlugin = require("html-webpack-plugin");
@@ -443,8 +460,9 @@ webpack.config.base.js 是最基础的配置文件，包含了这些环境都可
             HTMLPlugins.push(htmlPlugin);
             Entries[page] = path.resolve(__dirname, `../app/js/${page}.js`);
         })
+```
 #### 3）主配置文件一览
-
+``` js{4}
         module.exports = {
             // 入口文件
             entry:Entries,
@@ -460,8 +478,9 @@ webpack.config.base.js 是最基础的配置文件，包含了这些环境都可
             // 插件
             plugins:[],
         }
+```
 #### 4）配置 css 加载器
-
+``` js{4}
         {
             // 对 css 后缀名进行处理
             test:/\.css$/,
@@ -485,13 +504,14 @@ webpack.config.base.js 是最基础的配置文件，包含了这些环境都可
                 ]
             })
         },
+```
 这里有两点需要说明：
 A.publicPath：在 css 中设置背景图像的 url 时，经常会找不到图片（默认会在 css 文件所在的文件夹中寻找），这里设置 extract-text-webpack-plugin 插件的 publicPath 为图片文件夹所在的目录，就可以顺利找到图片了。
 在 config.js 中，设置 cssPublicPath 的值：
 
 cssPublicPath:"../"
 B.postcss 我主要用来自动添加 css 前缀以及一点美化操作，在使用 postcss 时，需要在 postcss.config.js 中进行配置：
-
+``` js{4}
         module.exports = {  
           plugins: {  
             'autoprefixer': {
@@ -503,9 +523,10 @@ B.postcss 我主要用来自动添加 css 前缀以及一点美化操作，在�
             }  
           }  
         }  
+```
 #### 5）配置 js 加载器
 js 加载器的配置如下：
-
+``` js{4}
         {
             test: /\.js$/,
             exclude: /node_modules/,
@@ -516,9 +537,10 @@ js 加载器的配置如下：
                 }
             }
         },
+```
 #### 6）配置图片加载器
 图片加载器的配置如下：
-
+``` js{4}
         {
             test: /\.(png|svg|jpg|gif)$/,
             use:{
@@ -531,6 +553,7 @@ js 加载器的配置如下：
                 }
             }
         },
+```
 outputPath 规定了输出图片的位置，默认情况下，图片在打包时会和所有的 HTML/CSS/JS 文件打包到一起，通过设置 outputPath 值可以将所有的图片都打包到一个单独的文件中。
 设置 config.js 的 imgOutputPath：
 
@@ -538,14 +561,15 @@ imgOutputPath:"img/",
 在打包时，会将所有的图片打包到 dist 文件夹下的 img 文件夹中。
 #### 7）配置自定义字体加载器
 自定义字体加载器的配置如下：
-
+``` js{4}
         {
             test: /\.(woff|woff2|eot|ttf|otf)$/,
             use:["file-loader"]
         }
+```
 #### 8）插件配置
 插件配置如下：
-
+``` js{4}
         plugins:[
             // 自动清理 dist 文件夹
             new CleanWebpackPlugin(["dist"]),
@@ -554,16 +578,18 @@ imgOutputPath:"img/",
             // 自动生成 HTML 插件
             ...HTMLPlugins
         ],
+```
 同打包图片，在抽取 css 时也可以指定抽取的目录，只需将路径传入 extract-text-webpack-plugin 插件的构造函数中。
 配置 config.js 的 cssOutputPath 选项：
-
-cssOutputPath:"./css/styles.css",
+``` js{4}
+        cssOutputPath:"./css/styles.css",
+```
 这里将所有的 css 提取到 dist 文件夹下的 css 文件夹中，并命名为 style.css。
 
 webpack.config.base.js 详细配置
 
 下面是 webpack.config.base.js 的详细配置文件：
-
+``` js{4}
           const path = require("path");
           // 引入插件
           const HTMLWebpackPlugin = require("html-webpack-plugin");
@@ -659,13 +685,13 @@ webpack.config.base.js 详细配置
                   ...HTMLPlugins
               ],
           }
-
+```
 
 webpack.config.dev.js
 ---
 
 这个配置文件主要用来在开发环境使用，需要 webpack-dev-server 这个插件提供支持。该文件的配置如下：
-
+``` js{4}
         // 引入基础配置文件
         const webpackBase = require("./webpack.config.base");
         // 引入 webpack-merge 插件
@@ -685,16 +711,17 @@ webpack.config.dev.js
                 }
             }
         });
+```
 其中，webpack-merge 这个插件用来对配置文件进行合并，在 webpack.config.base.js 的基础上合并新的配置。
 devServer 配置项的 contentBase 项是项目的根目录，也就是我们的 dist 目录，区别在于这个 dist 目录不是硬盘上的 dist 目录，而是存在于内存中的 dist 目录。在使用 webpack-dev-server 时，将会以这个内存中的 dist 目录作为根目录。
 devServer 的 overlay 选项中设置了展示错误和警告，这样当代码发生错误时，会将错误信息投射到浏览器上，方便我们开发。
 这里将 contentBase 指向了 config 中的一个配置：
-
+``` js{4}
         devServerOutputPath:"../dist",
         webpack.config.prod.js
-
+```
 该配置文件用来在生产环境启用，主要用来压缩、合并和抽取 JavaScript 代码，并将项目文件打包至硬盘上的 dist 文件夹中。
-
+``` js{4}
         // 引入基础配置
         const webpackBase = require("./webpack.config.base");
         // 引入 webpack-merge 插件
@@ -717,12 +744,13 @@ devServer 的 overlay 选项中设置了展示错误和警告，这样当代码�
                 }),
             ]
         });
+```
 在抽取公共的 JavaScript 代码时，我们将公共代码抽取为 commons.bundle.js，这个公共代码的 chunk（name）名就是 commons，在使用 html-webpack-plugin 自动生成 HTML 文件时会引用这个 chunk。
-
+``` js{4}
         webpack.config.lint.js
-
+```
 这项配置用来进行代码检查，配置如下：
-
+``` js{4}
         const webpackBase = require("./webpack.config.base");
         const webpackMerge = require("webpack-merge");
         const config = require("./config");
@@ -753,13 +781,14 @@ devServer 的 overlay 选项中设置了展示错误和警告，这样当代码�
                 }
             }
         });
+```
 在使用 eslint-loader 时，我们设置了 enforce:"pre" 选项，这个选项表示在处理 JavaScript 之前先启用 ESLint 代码检查，然后再使用 babel 等 loader 对 JavaScript 进行编译。
 在 eslint-loader 的 options 选项中，设置了自动修复和启用警告信息，这样当我们的代码出现问题时，ESLint 会首先尝试自动修复（如将双引号改为单引号），对于无法自动修复的问题，将以警告或错误的信息进行展示。
 
 配置 .eslintrc.js
 ----
 要想使用 ESLint 进行代码检查，除了使用 eslint-loader 之外，还需针对 ESLint 本身进行配置，这就需要一个 .eslintrc.js 文件。该文件的配置如下：
-
+``` js{4}
         module.exports = {
           env: {
             browser: true,
@@ -781,9 +810,10 @@ devServer 的 overlay 选项中设置了展示错误和警告，这样当代码�
             'no-console': 0,
           },
         };
-
+```
 package.json
 ----
+``` js{4}
         {
           "name": "xxx",
           "version": "1.0.0",
@@ -821,18 +851,23 @@ package.json
           },
           "dependencies": {}
         }
+```
 .gitignore
 ----
+``` js{4}
         node_modules
         dist
         npm-debug.log
+
 .babelrc
 
         {
             "plugins": ["transform-es2015-spread"]
         }
+```
 .eslintrc.js
 ----
+``` js{4}
         module.exports = {
           env: {
             browser: true,
@@ -854,8 +889,10 @@ package.json
             'no-console': 0,
           },
         };
+```
 postcss.config.js
 ----
+``` js{4}
         module.exports = {  
           plugins: {  
             'autoprefixer': {
@@ -866,9 +903,11 @@ postcss.config.js
                 remove: true
             }  
           }  
-        }  
+        } 
+``` 
 config.js
 ----
+``` js{4}
         module.exports = {
             HTMLDirs:[
                 "index",
@@ -891,8 +930,10 @@ config.js
             devServerOutputPath:"../dist",
 
         }
+```
 webpack.config.js
 ----
+``` js{4}
         // 获取环境命令，并去除首尾空格
         const env = process.env.NODE_ENV.replace(/(\s*$)|(^\s*)/ig,"");
         // 根据环境变量引用相关的配置文件
@@ -994,8 +1035,10 @@ webpack.config.js
                 ...HTMLPlugins
             ],
         }
+```
 webpack.config.dev.js
 ----
+``` js{4}
         // 引入基础配置文件
         const webpackBase = require("./webpack.config.base");
         // 引入 webpack-merge 插件
@@ -1015,9 +1058,10 @@ webpack.config.dev.js
                 }
             }
         });
+```
 webpack.config.prod.js
 ----
-
+``` js{4}
         // 引入基础配置
         const webpackBase = require("./webpack.config.base");
         // 引入 webpack-merge 插件
@@ -1040,8 +1084,10 @@ webpack.config.prod.js
                 }),
             ]
         });
+```
 webpack.config.lint.js
 ----
+``` js{4}
         const webpackBase = require("./webpack.config.base");
         const webpackMerge = require("webpack-merge");
         const config = require("./config");
@@ -1072,8 +1118,10 @@ webpack.config.lint.js
                 }
             }
         });
+```
 项目结构
 ----
+``` js{4}
         │  .babelrc
         │  .eslintrc.js
         │  .gitignore
@@ -1114,6 +1162,7 @@ webpack.config.lint.js
                 webpack.config.dev.js
                 webpack.config.lint.js
                 webpack.config.prod.js
+```
 - - - 
 - - - 
 - - - 
@@ -1124,7 +1173,7 @@ webpack.config.lint.js
 #### 想引用jquery而不是每个页面都引用只需要：
 #### 引入jquery后如果开启lint检查模式 可以正常使用的前提是每个页面都require 一次
 * webpack.config.base.js
-
+``` js{4}
         cnpm i jquery --save
         
         const ProvidePlugin = new webpack.ProvidePlugin({
@@ -1132,11 +1181,11 @@ webpack.config.lint.js
           jQuery: 'jquery',
         });
 
-
+```
 
 #### 引入sass 
 * webpack.config.base.js
-
+``` js{4}
         {
             // s?css => scss或者css
             test:/\.s?css$/,
@@ -1164,11 +1213,11 @@ webpack.config.lint.js
                 ]
             })
         },
-
+```
 
 #### 如果import了类似swiper这种库函数 但不处理modules里面的swiper,所以这里要允许除了node_modules里面的swiper的其他所有文件
 * webpack.config.base.js
-
+``` js{4}
         {
             test: /\.js$/,
             exclude: /^node_modules*swiper$/, 
@@ -1179,3 +1228,4 @@ webpack.config.lint.js
                 }
             }
         },
+```
