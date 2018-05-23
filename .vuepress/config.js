@@ -3,9 +3,9 @@ module.exports = {
     ['link', { rel: 'shortcut icon', type: "image/x-icon", href: `https://gitee.com/uploads/6/1023506_PorcoMar.png?1500276509" rel="shortcut icon` }]
   ],
   //网站标题
-  title: 'PorcoMar world',
+  title: 'PorcoMar Site',
   // 主页描述
-  description: 'this guy is too lazy to say anything',
+  description: '🧜‍ Settle DUO in a golden house~👺',
   // 要部署的仓库名字
   base: '/',
   dest: './.vuepress/dist',
@@ -17,8 +17,8 @@ module.exports = {
       {text: 'Home', link: '/'},
       {text: 'Study', link: '/catalog/study/'},
       {text: 'About', link: '/catalog/about/'},
-      {text: 'Gitee', link: 'https://gitee.com/PorcoMar/events'},
-      {text: 'Github', link: 'https://github.com/PorcoMar'}
+      {text: 'Gitee', link: 'https://gitee.com/PorcoMar/projects'},
+      {text: 'Github', link: 'https://github.com/PorcoMar?tab=repositories'}
     ],
     // 侧边栏配置,侧边栏组，不同（导航）页面对应不同的侧边栏
     // 以对象形式配置，前边的key为nav处的路径,后边提供一个数组作为此侧边栏中的子标题
