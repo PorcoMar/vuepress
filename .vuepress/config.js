@@ -16,8 +16,8 @@ module.exports = {
       // text为导航栏显示文字，link为路径，即文件夹名字，注意不要丢了名字前后的'/'
       {text: 'Home', link: '/'},
       {text: 'Study', link: '/catalog/study/'},
-      {text: 'About', link: '/catalog/about/'},
-      {text: 'Gitee', link: 'https://gitee.com/PorcoMar/projects'},
+      {text: 'About', link: 'http://www.porcofish.net:1314/'},
+      {text: 'Gitee', link: 'https://gitee.com/PorcoMar'},
       {text: 'Github', link: 'https://github.com/PorcoMar?tab=repositories'}
     ],
     // 侧边栏配置,侧边栏组，不同（导航）页面对应不同的侧边栏
@@ -25,7 +25,7 @@ module.exports = {
     sidebar: 
     {
       '/catalog/study/': genSidebarConfig('开发笔记'),
-      '/catalog/about/': aboutMe('关于我'),
+      // '/catalog/about/': aboutMe('关于我'),
     },
     // 这是嵌套标题链接，自动显示当前激活（导航）页面标题的链接，即显示深度（h1-h6的深度）
     sidebarDepth: 2
@@ -37,7 +37,7 @@ function genSidebarConfig(title) {
     collapsable: true,
     children: [
       '',
-      '使用 webpack3 配置多页应用',
+      'webpack环境下配置MPA',
       'Markdown写法'
     ]
   }]
