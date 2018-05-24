@@ -5,7 +5,7 @@ module.exports = {
   //网站标题
   title: 'PorcoMar Site',
   // 主页描述
-  description: '🧜‍ Settle DUO in a golden house~👺',
+  description: 'Settle 🍀DUO in a golden house~👺',
   // 要部署的仓库名字
   base: '/',
   dest: './.vuepress/dist',
@@ -37,8 +37,12 @@ function genSidebarConfig(title) {
     collapsable: true,
     children: [
       '',
-      'webpack环境下配置MPA',
-      'Markdown写法'
+      'vuepress使用说明',
+      '微信授权和sdk加密算法',
+      'browserify+gulp自动编译打包',
+      '使用webpack配置MPA.md',
+      'Markdown笔记',
+      'WePY总结',
     ]
   }]
 }
