@@ -1,8 +1,17 @@
- # Markdown 语法
+---
+title: "➹ Markdown笔记"
+lang: en-US
+meta:
+  - name: description
+    content: hello
+---
+
+ # Markdown笔记
+ ::: tip Markdown
   Markdown 的目标是实现「易读易写」，兼容HTML。
 
   但是，在 HTML 区块标签间的 Markdown 格式语法将不会被处理。比如，你在 HTML 区块内使用 Markdown 样式的*强调*会没有效果。也就是说，Markdown 与HTML标签不能嵌套使用
-
+:::
 
 
 ## 标题
