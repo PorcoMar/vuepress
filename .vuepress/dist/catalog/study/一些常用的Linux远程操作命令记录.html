@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>PorcoMar Site | ➹ 一些常用的 Linux 远程操作命令记录</title>
+    <meta name="description" content="Settle 🍀DUO in a golden house~👺">
+    <link rel="shortcut icon" type="image/x-icon" href="https://gitee.com/uploads/6/1023506_PorcoMar.png?1500276509&quot; rel=&quot;shortcut icon">
+    
+    <link rel="preload" href="/assets/css/14.styles.3b3e0aa5.css" as="style"><link rel="preload" href="/assets/js/app.e74c6be5.js" as="script"><link rel="preload" href="/assets/js/3.6b624594.js" as="script"><link rel="prefetch" href="/assets/js/6.6ef85c1f.js"><link rel="prefetch" href="/assets/js/0.e198d189.js"><link rel="prefetch" href="/assets/js/1.019ef4de.js"><link rel="prefetch" href="/assets/js/2.3bade9a0.js"><link rel="prefetch" href="/assets/js/4.d3123d49.js"><link rel="prefetch" href="/assets/js/5.9763d215.js"><link rel="prefetch" href="/assets/js/7.3d1d1908.js"><link rel="prefetch" href="/assets/js/8.aeec7a56.js"><link rel="prefetch" href="/assets/js/9.7fc3f0c4.js"><link rel="prefetch" href="/assets/js/10.e018319f.js"><link rel="prefetch" href="/assets/js/11.2a7e85d9.js"><link rel="prefetch" href="/assets/js/12.9bb6a8ca.js"><link rel="prefetch" href="/assets/js/13.4c11bebb.js">
+    <link rel="stylesheet" href="/assets/css/14.styles.3b3e0aa5.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="home-link router-link-active"><!----><span class="site-name">
+      PorcoMar Site
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/catalog/study/" class="nav-link router-link-active">Study</a></div><div class="nav-item"><a href="http://www.porcofish.net:1314/" target="_blank" rel="noopener noreferrer" class="nav-link">About</a></div><div class="nav-item"><a href="https://gitee.com/PorcoMar" target="_blank" rel="noopener noreferrer" class="nav-link">Gitee</a></div><div class="nav-item"><a href="https://github.com/PorcoMar?tab=repositories" target="_blank" rel="noopener noreferrer" class="nav-link">Github</a></div><!----></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/catalog/study/" class="nav-link router-link-active">Study</a></div><div class="nav-item"><a href="http://www.porcofish.net:1314/" target="_blank" rel="noopener noreferrer" class="nav-link">About</a></div><div class="nav-item"><a href="https://gitee.com/PorcoMar" target="_blank" rel="noopener noreferrer" class="nav-link">Gitee</a></div><div class="nav-item"><a href="https://github.com/PorcoMar?tab=repositories" target="_blank" rel="noopener noreferrer" class="nav-link">Github</a></div><!----></nav><ul class="sidebar-links"><li><div class="sidebar-group first collapsable"><p class="sidebar-heading open"><span>开发笔记</span><span class="arrow down"></span></p><ul class="sidebar-group-items"><li><a href="/catalog/study/" class="sidebar-link">➹ study目录说明</a></li><li><a href="/catalog/study/vuepress使用说明.html" class="sidebar-link">➹ vuePress使用说明</a></li><li><a href="/catalog/study/微信授权和sdk加密算法.html" class="sidebar-link">➹ 微信授权和sdk加密算法</a></li><li><a href="/catalog/study/browserify+gulp自动编译打包.html" class="sidebar-link">➹ browserify+gulp自动编译打包</a></li><li><a href="/catalog/study/使用webpack配置MPA.html" class="sidebar-link">➹ 使用webpack配置MPA</a></li><li><a href="/catalog/study/Markdown笔记.html" class="sidebar-link">➹ Markdown笔记</a></li><li><a href="/catalog/study/vuex的理解.html" class="sidebar-link">➹ vuex的理解</a></li><li><a href="/catalog/study/WePY总结.html" class="sidebar-link">➹ WePY总结</a></li><li><a href="/catalog/study/mpvue-docs.html" class="sidebar-link">➹ mpvue-docs</a></li><li><a href="/catalog/study/一些常用的Linux远程操作命令记录.html" class="active sidebar-link">➹ 一些常用的 Linux 远程操作命令记录</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/catalog/study/一些常用的Linux远程操作命令记录.html#➣-简介" class="sidebar-link">➣ 简介</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/catalog/study/一些常用的Linux远程操作命令记录.html#ip-地址相关操作" class="sidebar-link">IP 地址相关操作</a></li><li class="sidebar-sub-header"><a href="/catalog/study/一些常用的Linux远程操作命令记录.html#ssh-相关操作" class="sidebar-link">SSH 相关操作</a></li><li class="sidebar-sub-header"><a href="/catalog/study/一些常用的Linux远程操作命令记录.html#scp-相关操作" class="sidebar-link">SCP 相关操作</a></li><li class="sidebar-sub-header"><a href="/catalog/study/一些常用的Linux远程操作命令记录.html#进程相关操作" class="sidebar-link">进程相关操作</a></li><li class="sidebar-sub-header"><a href="/catalog/study/一些常用的Linux远程操作命令记录.html#端口相关操作" class="sidebar-link">端口相关操作</a></li><li class="sidebar-sub-header"><a href="/catalog/study/一些常用的Linux远程操作命令记录.html#冻结终端" class="sidebar-link">冻结终端</a></li><li class="sidebar-sub-header"><a href="/catalog/study/一些常用的Linux远程操作命令记录.html#释放-获取-ip-地址" class="sidebar-link">释放/获取 IP 地址</a></li><li class="sidebar-sub-header"><a href="/catalog/study/一些常用的Linux远程操作命令记录.html#密钥相关操作" class="sidebar-link">密钥相关操作</a></li><li class="sidebar-sub-header"><a href="/catalog/study/一些常用的Linux远程操作命令记录.html#使用密钥进行免密登陆" class="sidebar-link">使用密钥进行免密登陆</a></li><li class="sidebar-sub-header"><a href="/catalog/study/一些常用的Linux远程操作命令记录.html#不通过配置文件实现免密登陆" class="sidebar-link">不通过配置文件实现免密登陆</a></li><li class="sidebar-sub-header"><a href="/catalog/study/一些常用的Linux远程操作命令记录.html#config-配置文件的扩展" class="sidebar-link">config 配置文件的扩展</a></li></ul></li><li class="sidebar-sub-header"><a href="/catalog/study/一些常用的Linux远程操作命令记录.html#➣-总结" class="sidebar-link">➣ 总结</a></li></ul></li><li><a href="/catalog/study/使用PM2管理Node服务.html" class="sidebar-link">➹ 使用 PM2 管理 Node 服务</a></li></ul></div></li></ul></div><div class="page"><div class="content"><h2 id="➣-简介"><a href="#➣-简介" aria-hidden="true" class="header-anchor">#</a> ➣ 简介</h2><div class="tip custom-block"><p class="custom-block-title">常用Linux命令</p><p>内容主要包括:查看IP地址、ssh相关操作、scp相关操作、进程相关操作、端口相关操作、冻结终端、释放/获取IP地址、密匙相关操作、使用密匙进行免密登陆、不通过配置文件实现免密登陆、config配置文件拓展</p></div><h3 id="ip-地址相关操作"><a href="#ip-地址相关操作" aria-hidden="true" class="header-anchor">#</a> IP 地址相关操作</h3><p>查看 IP 地址可以使用 ip 命令或 ifconfig 命令，推荐使用 ip 命令：</p><p>1）使用 ip 命令查看 IP 地址：</p><pre class="language-js"><code>ip addr
+</code></pre><p>或</p><pre class="language-js"><code>ip addr <span class="token operator">|</span> grep inet（展示更为简单）
+</code></pre><p>2）使用 ifconfig 查看 IP 地址：</p><pre class="language-js"><code>ifconfig
+</code></pre><p>或</p><pre class="language-js"><code>ifconfig <span class="token operator">|</span> grep inet（展示更为简单）
+</code></pre><h3 id="ssh-相关操作"><a href="#ssh-相关操作" aria-hidden="true" class="header-anchor">#</a> SSH 相关操作</h3><p>SSH 协议可以让我们登陆远程服务器，在使用 SSH 协议之前，需要确保：</p><p>客户机和服务器都安装了 SSH 协议
+服务器的 SSH 处于开启状态
+1）安装 SSH 协议
+Ubuntu 上默认是没有安装 SSH 服务的，需要我们进行手动安装：</p><pre class="language-js"><code>sudo apt<span class="token operator">-</span><span class="token keyword">get</span> install openssh<span class="token operator">-</span>client openssh<span class="token operator">-</span>server
+</code></pre><p>2）查看 SSH 服务是否处于开启状态
+安装好 SSH 服务后会就会默认开启，我们也可以通过 systemctl 命令进行查看：</p><pre class="language-js"><code>systemctl status sshd
+</code></pre><p>如果服务没有开启，可以手动开启：</p><pre class="language-js"><code>systemctl start sshd
+</code></pre><p>有时候 SSH 服务可能是禁用的，需要先解除禁用：</p><pre class="language-js"><code>systemctl enable sshd
+</code></pre><p>解除禁用后就可以使用 systemctl start sshd 开启 SSH 服务了。
+也可以停止 SSH 服务：</p><pre class="language-js"><code>systemctl stop sshd
+</code></pre><p>当我们安装并开启 SSH 服务后，就可以使用 ssh 命令进行远程登录了，该命令的使用方式为：</p><pre class="language-js"><code>ssh user@address
+</code></pre><p>如：</p><pre class="language-js"><code>ssh charley@<span class="token number">192.168</span><span class="token number">.47</span><span class="token number">.133</span>
+</code></pre><h3 id="scp-相关操作"><a href="#scp-相关操作" aria-hidden="true" class="header-anchor">#</a> SCP 相关操作</h3><p>SCP 是基于 SSH 的协议，可以用来上传资源至服务器或者从服务器下载资源。
+1）上传文件</p><pre class="language-js"><code>scp path user@address<span class="token punctuation">:</span>path
+</code></pre><p>上面第一个 path 是本地要上传到服务器的文件路径，第二个 path 是要上传到服务器的目标地址。注意不要遗忘服务器 IP 地址和目标路径之间的冒号。
+如：</p><pre class="language-js"><code>scp <span class="token punctuation">.</span><span class="token operator">/</span>test<span class="token punctuation">.</span>txt charley@<span class="token number">192.168</span><span class="token number">.47</span><span class="token number">.133</span><span class="token punctuation">:</span><span class="token operator">/</span>home<span class="token operator">/</span>charley
+</code></pre><p>也可以上传目录：</p><pre class="language-js"><code>scp <span class="token operator">-</span>r <span class="token punctuation">.</span><span class="token operator">/</span>mysite charley@<span class="token number">192.168</span><span class="token number">.47</span><span class="token number">.133</span><span class="token punctuation">:</span><span class="token operator">/</span>home<span class="token operator">/</span>charley
+</code></pre><p>2）下载文件</p><pre class="language-js"><code>scp charley@<span class="token number">192.168</span><span class="token number">.47</span><span class="token number">.133</span><span class="token punctuation">:</span><span class="token operator">/</span>home<span class="token operator">/</span>charley<span class="token operator">/</span>helloworld<span class="token punctuation">.</span>js <span class="token punctuation">.</span>
+</code></pre><p>也可以下载目录：</p><pre class="language-js"><code>scp <span class="token operator">-</span>r charley@<span class="token number">192.168</span><span class="token number">.47</span><span class="token number">.133</span><span class="token punctuation">:</span><span class="token operator">/</span>home<span class="token operator">/</span>charley<span class="token operator">/</span>mysite2 <span class="token punctuation">.</span>
+</code></pre><p>总结一下，scp 命令前面的参数是上传或下载的源地址，后面的参数是上传或下载的目标地址，如果需要上传或下载目录，需要在 scp 命令后加上短参数 -r。</p><h3 id="进程相关操作"><a href="#进程相关操作" aria-hidden="true" class="header-anchor">#</a> 进程相关操作</h3><p>1）查看当前的进程</p><pre class="language-js"><code>ps aux
+</code></pre><p>或</p><pre class="language-js"><code>ps aux <span class="token operator">|</span> greo xxx（查看某一个进程）
+</code></pre><p>2）杀死进程</p><pre class="language-js"><code>kill <span class="token constant">PID</span>（进程号）
+</code></pre><p>3）强制杀死进程</p><pre class="language-js"><code>kill <span class="token operator">-</span><span class="token number">9</span> <span class="token constant">PID</span>
+</code></pre><h3 id="端口相关操作"><a href="#端口相关操作" aria-hidden="true" class="header-anchor">#</a> 端口相关操作</h3><p>使用 netstat 命令可以查看端口信息：</p><pre class="language-js"><code>netstat
+</code></pre><p>或</p><pre class="language-js"><code>netstat <span class="token punctuation">[</span><span class="token operator">-</span>anp<span class="token punctuation">]</span>
+</code></pre><p>或</p><pre class="language-js"><code>netstat <span class="token punctuation">[</span><span class="token operator">-</span>anp<span class="token punctuation">]</span> <span class="token operator">|</span> grep <span class="token constant">PORT</span>（端口）
+</code></pre><p>也可以使用 lsof 命令查看端口信息：</p><pre class="language-js"><code>lsof <span class="token operator">-</span>i tcp<span class="token punctuation">:</span><span class="token number">8080</span>
+</code></pre><h3 id="冻结终端"><a href="#冻结终端" aria-hidden="true" class="header-anchor">#</a> 冻结终端</h3><p>在终端按下 Ctrl + S 组合键，终端就会被冻结。如果想解冻的话，按下 Ctrl + Q 组合键即可。</p><h3 id="释放-获取-ip-地址"><a href="#释放-获取-ip-地址" aria-hidden="true" class="header-anchor">#</a> 释放/获取 IP 地址</h3><pre class="language-js"><code>dhclient 命令可以释放或者获取本机的 <span class="token constant">IP</span> 地址。
+</code></pre><p>1）释放操作</p><pre class="language-js"><code>dhclient <span class="token operator">-</span>r
+</code></pre><p>2）获取操作</p><pre class="language-js"><code>dhclient
+</code></pre><p>当局域网的 IP 地址冲突时，可以用此方法解决。</p><h3 id="密钥相关操作"><a href="#密钥相关操作" aria-hidden="true" class="header-anchor">#</a> 密钥相关操作</h3><p>可以使用 ssh-keygen （Key Generator）生成公钥和私钥，需要先安装 SSH 服务。</p><pre class="language-js"><code>ssh<span class="token operator">-</span>keygen 的使用：
+</code></pre><ul><li>-t：选择的加密算法，一般选择 RSA 算法</li><li>-C：加密的特征码</li><li>-f：生成的密钥文件的文件名
+用法如下：</li></ul><pre class="language-js"><code>ssh<span class="token operator">-</span>keygen <span class="token operator">-</span>t rsa <span class="token operator">-</span><span class="token constant">C</span> <span class="token string">&quot;Charley&quot;</span> <span class="token operator">-</span>f <span class="token string">&quot;charley_rsa&quot;</span>
+</code></pre><p>命令执行完成后，会在执行命令的目录中生成一个 charley_rsa 和 charley_rsa.pub 文件，其中前一个是私钥，后一个是公钥。切记私钥一定不要泄露。</p><h3 id="使用密钥进行免密登陆"><a href="#使用密钥进行免密登陆" aria-hidden="true" class="header-anchor">#</a> 使用密钥进行免密登陆</h3><p>有了公钥和私钥后，就可以在服务器进行免密登陆了。首先，需要将我们的公钥传递到服务器用户主目录的 .ssh 目录下。如 /home/charley/.ssh 或 /root/.ssh，传到前一个目录就可以免密登陆到 charley 这个用户，传到后一个目录就可以免密登陆到 ROOT 用户，以此类推。
+服务器接受到公钥文件后，需要将公钥文件的内容追加到 authorized_keys 文件中，如果服务器还没有该文件，需要先创建一个。</p><pre class="language-js"><code>cat charley_rsa<span class="token punctuation">.</span>pub <span class="token operator">&gt;&gt;</span> authorized_keys
+</code></pre><p>建议在生成密钥时需要将私钥放在用户主目录的 .ssh 文件夹下以方便管理，并且需要确认私钥的操作权限为 600，即只能私钥的所有者进行操作，其他用户不能操作私钥。
+接下来，我们需要在客户机配置一个 config 文件，以实现免密登陆，如果客户机上还没有该文件，需要先创建一个。
+config 文件配置的模板如下：</p><ul><li>要登录的用户名</li></ul><pre class="language-js"><code>User charley
+</code></pre><ul><li>登陆的别名</li></ul><pre class="language-js"><code>Host charley<span class="token operator">-</span>server
+</code></pre><ul><li>登陆的地址，可以是一个 IP 地址或者域名</li></ul><pre class="language-js"><code>HostName <span class="token number">192.168</span><span class="token number">.1</span><span class="token number">.109</span>
+</code></pre><ul><li>登陆的端口</li></ul><pre class="language-js"><code>Port <span class="token number">22</span>
+</code></pre><ul><li>第一次连接服务器时，自动接受新的公钥</li></ul><pre class="language-js"><code>StrictHostKeyChecking no
+</code></pre><ul><li>私钥文件的路径</li></ul><pre class="language-js"><code>IdentityFile <span class="token operator">~</span><span class="token operator">/</span><span class="token punctuation">.</span>ssh<span class="token operator">/</span>charley_rsa
+</code></pre><ul><li>维持 SSH 连接，防止长时间不做操作被踢</li></ul><pre class="language-js"><code>IdentitiesOnly yes
+</code></pre><ul><li>其他配置项，照搬即可</li></ul><pre class="language-js"><code>Protocol <span class="token number">2</span>
+Compression yes
+ServerAliveInterval <span class="token number">60</span>
+<span class="highlighted-line">ServerAliveCountMax <span class="token number">20</span></span>LogLevel <span class="token constant">INFO</span>
+</code></pre><p>写好配置文件后，我们输入 ssh charley-server 就可以实现免密登陆了。</p><h3 id="不通过配置文件实现免密登陆"><a href="#不通过配置文件实现免密登陆" aria-hidden="true" class="header-anchor">#</a> 不通过配置文件实现免密登陆</h3><p>前面是介绍了通过 config 配置文件的方式实现免密登陆，但在某些情况下我们可能没有权限操作配置文件，这就要手动指定秘钥进行登陆了。手动指定秘钥进行登陆也很简单：</p><pre class="language-js"><code>ssh <span class="token operator">-</span>i charley_rsa charley@<span class="token number">192.168</span><span class="token number">.1</span><span class="token number">.109</span>
+</code></pre><p>通过 -i 短参数指定了客户机的私钥地址，同样可以实现服务器的免密登陆。</p><h3 id="config-配置文件的扩展"><a href="#config-配置文件的扩展" aria-hidden="true" class="header-anchor">#</a> config 配置文件的扩展</h3><p>在 config 配置文件中，不仅可以配置单台主机的免密登陆，还可以配置多台主机的免密登陆，同时还可以对多台主机共用一个公钥或不同的公钥进行配置。以下提供一个简单的配置模板。
+1）多台主机共用一个公钥</p><ul><li>第一台主机</li></ul><pre class="language-js"><code>Host charley<span class="token operator">-</span>first<span class="token operator">-</span>server
+HostName xxx
+Port <span class="token number">22</span>
+<span class="highlighted-line"></span></code></pre><ul><li>第二台主机</li></ul><pre class="language-js"><code>Host charley<span class="token operator">-</span>second<span class="token operator">-</span>server
+HostName xxx
+Port <span class="token number">22</span>
+<span class="highlighted-line"></span>Host <span class="token operator">*</span><span class="token operator">-</span>server
+User charley
+IdentityFile <span class="token operator">~</span><span class="token operator">/</span><span class="token punctuation">.</span>ssh<span class="token operator">/</span>charley_rsa
+Protocol <span class="token number">2</span>
+Compression yes
+ServerAliveInterval <span class="token number">60</span>
+ServerAliveCountMax <span class="token number">20</span>
+LogLevel <span class="token constant">INFO</span>
+</code></pre><p>2）多台主机使用不同的公钥</p><ul><li>第一台主机</li></ul><pre class="language-js"><code>User charley
+Host charley<span class="token operator">-</span>first<span class="token operator">-</span>server
+HostName xxx
+<span class="highlighted-line">Port <span class="token number">22</span></span>StrictHostKeyChecking no
+IdentityFile <span class="token operator">~</span><span class="token operator">/</span><span class="token punctuation">.</span>ssh<span class="token operator">/</span>charley_first_rsa
+IdentitiesOnly yes
+Protocol <span class="token number">2</span>
+Compression yes
+ServerAliveInterval <span class="token number">60</span>
+ServerAliveCountMax <span class="token number">20</span>
+LogLevel <span class="token constant">INFO</span>
+</code></pre><ul><li>第二台主机</li></ul><pre class="language-js"><code>User charley
+Host charley<span class="token operator">-</span>second<span class="token operator">-</span>server
+HostName xxx
+<span class="highlighted-line">Port <span class="token number">22</span></span>StrictHostKeyChecking no
+IdentityFile <span class="token operator">~</span><span class="token operator">/</span><span class="token punctuation">.</span>ssh<span class="token operator">/</span>charley_second_rsa
+IdentitiesOnly yes
+Protocol <span class="token number">2</span>
+Compression yes
+ServerAliveInterval <span class="token number">60</span>
+ServerAliveCountMax <span class="token number">20</span>
+LogLevel <span class="token constant">INFO</span>
+</code></pre><h2 id="➣-总结"><a href="#➣-总结" aria-hidden="true" class="header-anchor">#</a> ➣ 总结</h2><p>本文介绍了一些和 Linux 远程操作相关的命令，这些命令都是基于 SSH 协议的，包括用来远程登陆的 ssh 命令和用来上传或下载文件的 scp 命令。
+文章的后半部分，介绍了如何使用 ssh-keygen 命令生成密钥文件，以及通过配置文件和手动指定密钥文件两种实现免密登陆的方式。
+需要注意的是，要实现免密登陆，需要在服务器上保存客户机的公钥文件，同时需要将该公钥文件的内容追加到 authorized_keys 文件中。</p></div><!----><div class="content page-nav"><p class="inner"><span class="prev">
+        ← <a href="/catalog/study/mpvue-docs.html" class="prev">
+          ➹ mpvue-docs
+        </a></span><span class="next"><a href="/catalog/study/使用PM2管理Node服务.html">
+          ➹ 使用 PM2 管理 Node 服务
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/assets/js/3.6b624594.js" defer></script><script src="/assets/js/app.e74c6be5.js" defer></script>
+  </body>
+</html>
