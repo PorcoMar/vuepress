@@ -42,7 +42,11 @@ function genSidebarConfig(title) {
       'browserify+gulp自动编译打包',
       '使用webpack配置MPA.md',
       'Markdown笔记',
+      'vuex的理解',
       'WePY总结',
+      'mpvue-docs',
+      '一些常用的Linux远程操作命令记录',
+      '使用PM2管理Node服务',
     ]
   }]
 }
