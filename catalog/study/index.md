@@ -52,4 +52,27 @@ lang: en-US
 
 - - -
 
+❉ [➳ mpvue-docs](mpvue-docs.html)
+::: tip Vue.js in mini program 
+* [ mpvue （github 地址请参见）是一个使用 Vue.js 开发小程序的前端框架。框架基于 Vue.js 核心，mpvue 修改了 Vue.js 的 runtime 和 compiler 实现，使其可以运行在小程序环境中，从而为小程序开发引入了整套 Vue.js 开发体验。值得一提的是](mpvue-docs.html)[mpvue的说明文档](http://mpvue.com/mpvue/#_2)[也是用的vuepress](mpvue-docs.html)
+:::
 
+- - -
+❉ [➳ 使用PM2管理Node服务](使用PM2管理Node服务.html)
+::: warning PM2
+❉ [pm2是一个Node进程管理工具,可以用来帮助我们更好的管理Node服务。PM2具有以下几个特性：
+1、动态监控文件变动，0秒热启动。2、对 CPU 进行负载均衡。3、监控 CPU、内存的使用状况。4、自动重启异常服务](使用PM2管理Node服务.html)
+:::
+
+- - -
+❉ [➳ 一些常用的Linux远程操作命令记录](一些常用的Linux远程操作命令记录.html)
+:::tip 常用Linux命令
+[内容主要包括:查看IP地址、ssh相关操作、scp相关操作、进程相关操作、端口相关操作、冻结终端、释放/获取IP地址、密匙相关操作、使用密匙进行免密登陆、不通过配置文件实现免密登陆、config配置文件拓展](一些常用的Linux远程操作命令记录.html)
+:::
+- - -
+
+❉ [➳ vuex的理解](vuex的理解.html)
+:::danger Vuex
+[Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。我所理解的 vuex 就是把需要共享的变量全部存储在一个对象里面，然后将这个对象放在顶层组件中供其他组件使用。在vue的组件化开发中，经常会遇到需要将当前组件的状态传递给其他组件。](vuex的理解.html)
+:::
+- - -

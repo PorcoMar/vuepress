@@ -1229,3 +1229,5 @@ const ProvidePlugin = new webpack.ProvidePlugin({
     }
 },
 ```
+
+➳ [github地址：点我](https://github.com/PorcoMar/webpack-multiPages.git)

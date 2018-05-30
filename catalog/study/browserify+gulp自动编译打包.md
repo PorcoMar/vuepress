@@ -197,5 +197,7 @@ gulp.task('browEntrigile', function(){  //合并多个入口文件 到多个地�
 ``` js{4}
 npm run start 
 ```
-浏览器自动打开默认端口运行
+浏览器自动打开默认端口运行。
+
+➳ [github地址：点我](https://github.com/PorcoMar/pack-tool.git)
 

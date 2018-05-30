@@ -521,7 +521,7 @@ kill -9 进程
 
 * #在获取以snsapi_userinfo为scope发起的网页授权的时候使用的方式是fs储存到本地的方式，你也可以采用其他方式
 
-
+➳ [gitee.com地址：点我](https://gitee.com/PorcoMar/WeiXinShouQuanHejs-sdk.git)
 
 
 
