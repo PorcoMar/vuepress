@@ -47,6 +47,7 @@ function genSidebarConfig(title) {
       'mpvue-docs',
       '一些常用的Linux远程操作命令记录',
       '使用PM2管理Node服务',
+      'yarn和npm的比较'
     ]
   }]
 }
