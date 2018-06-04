@@ -1,0 +1,56 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn
+
+PATH: 
+  /Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Users/porco_mar/phantomjs-2.1.1-macosx/bin:/Users/porco_mar/phantomjs-2.1.1-macosx/bin
+
+Yarn version: 
+  1.6.0
+
+Node version: 
+  10.0.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/_node: Not found
+      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:65327:18)
+      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:133155:22)
+      at Request.emit (events.js:182:13)
+      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:134138:10)
+      at Request.emit (events.js:182:13)
+      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:134058:12)
+      at Object.onceWrapper (events.js:275:13)
+      at IncomingMessage.emit (events.js:187:15)
+      at endReadableNT (_stream_readable.js:1091:14)
+      at process._tickCallback (internal/process/next_tick.js:174:19)
+
+npm manifest: 
+  {
+    "name": "vuepress",
+    "version": "1.0.0",
+    "description": "--- home: true actionText: My Site → actionLink: /guide/ features: footer: MIT Licensed | Copyright © 2018-present Evan You ---",
+    "main": "index.js",
+    "dependencies": {
+      "_node@10.1.0@node": "^10.1.0"
+    },
+    "devDependencies": {
+      "http-server": "^0.11.1"
+    },
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "dev": "vuepress dev .",
+      "build": "vuepress build .",
+      "http": "http-server .vuepress/dist -p 8000 -o"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
